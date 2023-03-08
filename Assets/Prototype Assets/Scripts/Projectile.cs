@@ -30,8 +30,8 @@ public class Projectile : MonoBehaviour
         //     Kill();
         // }
          if(other.tag=="Enemy"){
-            other.GetComponent<AttackZone>().TakeDamage(damage);
-            FindObjectOfType<AttackZone>().ChangeTarget();
+            other.GetComponent<Enemy>().TakeDamage(damage);
+            FindObjectOfType<Enemy>().ChangeTarget();
             Kill();
         }
          if(other.tag=="LootBox"){

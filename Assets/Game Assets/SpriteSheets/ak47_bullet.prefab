@@ -124,6 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   lifeTime: 3
-  explosion: {fileID: 6577337385409008283, guid: d5eaa137e6a737d43992f086a4b27181, type: 3}
+  explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
   damage: 2
   dmg: 2

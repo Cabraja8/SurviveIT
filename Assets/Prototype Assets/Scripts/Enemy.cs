@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int Health;
     
-    public Transform player;
+    public Transform Target;
 
     public float speed;
     public float timeBetweenAttacks;
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public int damage;
 
      public virtual void Start() {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+       Target = GameObject.FindGameObjectWithTag("Zone").transform;
         
     }
 
@@ -25,6 +25,16 @@ public class Enemy : MonoBehaviour
         if(Health <=0){
             Debug.Log("dmg");
             Destroy(this.gameObject);
+        }
+    }
+    public void ChangeTarget(){
+        Target =  GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
+     private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag=="Player"){
+           ChangeTarget();
         }
     }
 }
