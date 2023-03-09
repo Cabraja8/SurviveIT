@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowMonster : Enemy
+public class MeleeMonster : Enemy
 {
   public float stopDistance;
   

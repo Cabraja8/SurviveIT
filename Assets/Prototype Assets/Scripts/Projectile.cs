@@ -25,13 +25,11 @@ public class Projectile : MonoBehaviour
     }
    private void OnTriggerEnter2D(Collider2D other) {
 
-        // if(other.tag=="Enemy"){
-        //     other.GetComponent<Enemy>().TakeDamage(damage);
-        //     Kill();
-        // }
+     
          if(other.tag=="Enemy"){
             other.GetComponent<Enemy>().TakeDamage(damage);
             FindObjectOfType<Enemy>().ChangeTarget();
+            DestroyProjectile();
             Kill();
         }
          if(other.tag=="LootBox"){
@@ -47,7 +45,7 @@ public class Projectile : MonoBehaviour
         
    }
 
-    void DestroyProjectile(){
+   public void DestroyProjectile(){
         Instantiate(explosion,transform.position,Quaternion.identity);
         Destroy(gameObject);
     }

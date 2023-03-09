@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 10
   Target: {fileID: 0}
-  speed: 5
+  speed: 2
   timeBetweenAttacks: 1
   damage: 1
   stopDistance: 2
