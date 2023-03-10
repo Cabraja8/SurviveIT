@@ -31,7 +31,12 @@ public class MeleeMonster : Enemy
    
 
     IEnumerator Attack(){
+        if(Target.tag=="Player"){
         Target.GetComponent<Player>().TakeDamage(damage);
+        }
+        if(Target.tag=="Zone"){
+        Target.GetComponent<Zone>().TakeDamage(damage);
+        }
 
         Vector2 originalPosition = transform.position;
         Vector2 targetPosition = Target.position;
