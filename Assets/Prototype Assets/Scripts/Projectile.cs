@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     public GameObject explosion;
 
     public int damage;
-    public int dmg;
+   
 
     void Start()
     {   
@@ -33,7 +33,8 @@ public class Projectile : MonoBehaviour
             Kill();
         }
          if(other.tag=="LootBox"){
-            other.GetComponent<LootBoxTest>().DestroyBox(dmg);
+            other.GetComponent<LootBox>().DestroyBox();
+            DestroyProjectile();
           
         }
          if(other.tag=="Wall"){
