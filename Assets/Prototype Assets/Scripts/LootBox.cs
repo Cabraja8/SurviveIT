@@ -6,17 +6,24 @@ public class LootBox : MonoBehaviour
 {
    
     
-    public GameObject weapon;
+    public Weapon weapon;
+    public GameObject spawnPoint;
 
+
+    
 
     public void DestroyBox(){
 
-        Debug.Log("dmgbox");
+      
        
         
-            Debug.Log("LootBox");
-            Instantiate(weapon,transform.position, transform.rotation);
             Destroy(this.gameObject);
+            Debug.Log("LootBox");
+            
+            weapon.GetComponent<Weapon>().enabled=false;
+            weapon.GetComponent<WeaponPickup>().enabled=true;
+            
+            Instantiate(weapon,spawnPoint.transform.position, spawnPoint.transform.rotation);
      
 
     }

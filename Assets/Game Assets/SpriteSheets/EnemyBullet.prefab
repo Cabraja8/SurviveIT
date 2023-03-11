@@ -124,6 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetP: {fileID: 0}
   targetPosition: {x: 0, y: 0}
-  lifeTime: 2
-  damageAmount: 1
-  speed: 10
+  lifeTime: 3
+  damageAmount: 15
+  speed: 12

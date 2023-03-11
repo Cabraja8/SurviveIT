@@ -98,8 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   lifeTime: 2
-  damage: 2
-  dmg: 2
+  explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
+  damage: 37
 --- !u!61 &6193800152274421753
 BoxCollider2D:
   m_ObjectHideFlags: 0
