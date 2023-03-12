@@ -56,17 +56,11 @@ public class Player : MonoBehaviour
 
     public void ChangeWeapon(Weapon WeaponToEquip){
       
-        Destroy(GameObject.FindWithTag("HandGun"));
-        Destroy(GameObject.FindGameObjectWithTag("Shotgun"));
-        Destroy(GameObject.FindGameObjectWithTag("Assault Rifle"));
-        
-       
-        Debug.Log("Weapon changed");
-        WeaponToEquip.GetComponent<Weapon>().enabled=true;
-         WeaponToEquip.GetComponent<WeaponPickup>().enabled=false;
 
-       
-      
+      //SetActive weapon umjesto instantiate-a
+
+        Debug.Log("Weapon changed");
+    
         Instantiate(WeaponToEquip,transform.position,transform.rotation,transform);
     }
     

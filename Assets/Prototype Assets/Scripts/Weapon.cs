@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject projectile;
 
-    public GameObject weapon;
+    public Weapon weapon;
 
     public Transform shotPoint;
     public Transform shotPoint2;
@@ -109,9 +109,9 @@ public class Weapon : MonoBehaviour
     }
     
 
-    // instatiate weapon after swap
-    public GameObject GetCurrentWeapon(){
-       return weapon = GetComponent<Weapon>().gameObject;
+    
+    public Weapon GetCurrentWeapon(){
+       return FindObjectOfType<Weapon>();
     }
     void GetAmmo(){
         bullets = FindObjectOfType<WeaponAmmoDisplay>().GetCurrentBullets();

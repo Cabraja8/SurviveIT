@@ -5,6 +5,8 @@ using UnityEngine;
 public class CurrentWeapons : MonoBehaviour
 {
    
+   public Weapon weapon;
+
     public Weapon MainGun;
 
     public Weapon SecondaryGun;
@@ -12,18 +14,36 @@ public class CurrentWeapons : MonoBehaviour
     public Weapon Melee;
 
 
-   // dodat skriptu za dodavanje weapona u slotove, iz Weapon skripte treba maknut Change Weapon i napravit ga za ovu skriptu /
+    public void MainGunChange(Weapon Equip){
+        MainGun = Equip;
+    }
+    
+     public void HandGunChange(Weapon Equip){
+        SecondaryGun = Equip;
+    }
+  
 
     private void Update() {
-
+    if(MainGun !=null){
    if(Input.GetKeyDown(KeyCode.Alpha1)){
+        
         FindObjectOfType<Player>().ChangeWeapon(MainGun);
+        weapon = MainGun;
     }
+    }
+    if(SecondaryGun !=null){
     if(Input.GetKeyDown(KeyCode.Alpha2)){
+     
         FindObjectOfType<Player>().ChangeWeapon(SecondaryGun);
+        weapon = SecondaryGun;
     }
+    }
+    if(Melee !=null){
      if(Input.GetKeyDown(KeyCode.Alpha3)){
+      
         FindObjectOfType<Player>().ChangeWeapon(Melee);
+        weapon = Melee;
+    }
     }
     }
     }

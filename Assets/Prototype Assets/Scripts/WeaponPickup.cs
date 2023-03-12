@@ -22,8 +22,31 @@ public class WeaponPickup : MonoBehaviour
         if (distance  <= distanceToPlayer ){
             if(Input.GetKeyDown(KeyCode.T)){
                  Debug.Log("weapon picked up");
+      
+           if(tag == "Assault Rifle"){
+            
+            FindObjectOfType<LootBox>().DeleteDrop();
+            FindObjectOfType<CurrentWeapons>().weapon =WeaponToEquip;
             FindObjectOfType<Player>().ChangeWeapon(WeaponToEquip);
-            Destroy(gameObject);
+            FindObjectOfType<CurrentWeapons>().MainGunChange(WeaponToEquip);
+
+           }
+           if(tag == "Shotgun"){
+            FindObjectOfType<LootBox>().DeleteDrop();
+            
+            FindObjectOfType<CurrentWeapons>().weapon =WeaponToEquip;
+            FindObjectOfType<Player>().ChangeWeapon(WeaponToEquip);
+            FindObjectOfType<CurrentWeapons>().MainGunChange(WeaponToEquip);
+           }
+           if(tag == "Handgun"){
+            FindObjectOfType<LootBox>().DeleteDrop();
+            
+            FindObjectOfType<CurrentWeapons>().weapon =WeaponToEquip;
+            FindObjectOfType<Player>().ChangeWeapon(WeaponToEquip);
+            FindObjectOfType<CurrentWeapons>().HandGunChange(WeaponToEquip);
+           }
+            
+            
             }
         }
     }
