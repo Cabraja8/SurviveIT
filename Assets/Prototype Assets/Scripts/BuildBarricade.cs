@@ -5,20 +5,15 @@ using UnityEngine;
 public class BuildBarricade : MonoBehaviour
 {   
     float distance = Mathf.Infinity;
-    float distanceToPlayer = 4f;
-    [SerializeField] Transform player;
-    public Collider2D barricade;
-    public Renderer barricadeSprite;
+    float BarricadeSpotDistance = 4f;
+    public Transform barricadeSpot;
 
-    public int planks;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = FindObjectOfType<Player>().transform;
-        barricade = GetComponent<BoxCollider2D>();
-        barricadeSprite = GetComponent<Renderer>();
-    }
+    
+   public int planks;
+
+   
+   
 
     // Update is called once per frame
     void Update()
@@ -27,28 +22,47 @@ public class BuildBarricade : MonoBehaviour
     }
 
     void CheckDistance(){
-         distance = Vector2.Distance(player.position,transform.position);
+        barricadeSpot =null;
+        barricadeSpot = FindObjectOfType<BarricadeSpot>().transform;
+         distance = Vector2.Distance(barricadeSpot.position,transform.position);
 
-        if (distance  <= distanceToPlayer ){
+        if (distance  <= BarricadeSpotDistance ){
+            barricadeSpot =null;
+            barricadeSpot = FindObjectOfType<BarricadeSpot>().transform;
             if(Input.GetKeyDown(KeyCode.F)){
-                if(planks>=1){
+                if(planks>=2){
                     planks--;
-                    barricade.enabled = true;
-                    barricadeSprite.enabled = true;
+                   
+
+                   //build barricade
                 }
-                else{
+                else if(planks<2){
+                    Debug.Log("you need more planks");
+                }
+                else if(planks==0){
                     Debug.Log("there's no more planks");
                 }
             }
         }
-        if(distance  >= distanceToPlayer ){
+        if(distance  >= BarricadeSpotDistance ){
+            barricadeSpot =null;
+            barricadeSpot = FindObjectOfType<BarricadeSpot>().transform;
              Debug.Log("Player is not close");
         }
 
 
     }
 
+    public void BuildTheBarricade(){
+
+    }
+
     public void IncreasePlanks(int plankAmount){
         planks = planks + plankAmount;
+
+
+        if(planks >3){
+            planks =3;
+        }
     }
 }

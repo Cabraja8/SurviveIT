@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
    public int health;
     private Vector2 MoveAmount;
 
-//    private Inventory Inventory;
-
 //    public HealthBar healthBar;
 
 
@@ -22,7 +20,7 @@ public class Player : MonoBehaviour
      void Start() {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        // Inventory = new Inventory();
+      
     }
 
 
@@ -53,23 +51,13 @@ public class Player : MonoBehaviour
     }
 
 
-
-    public void ChangeWeapon(Weapon WeaponToEquip){
-      
-
-      //SetActive weapon umjesto instantiate-a
-
-        Debug.Log("Weapon changed");
     
-        Instantiate(WeaponToEquip,transform.position,transform.rotation,transform);
+    public void RecoverHealth(int healthAmount){
+        health = health + healthAmount;
+
+        if(health > 100){
+            health = 100;
+        }
+
     }
-    
-    // public void RecoverHealth(int healthAmount){
-    //     health = health + healthAmount;
-
-    //     if(health > 100){
-    //         health = 100;
-    //     }
-
-    // }
 }

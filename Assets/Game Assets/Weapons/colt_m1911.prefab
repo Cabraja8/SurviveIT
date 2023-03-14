@@ -335,4 +335,5 @@ MonoBehaviour:
   bullets: 0
   shells: 0
   HandgunBullets: 0
+  MaxAmmo: 0
   timeBetweenShots: 0.7

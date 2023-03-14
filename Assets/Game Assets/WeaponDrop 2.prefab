@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9188805494942128003}
   - component: {fileID: 9188805494942128002}
   - component: {fileID: 9188805494942128005}
-  - component: {fileID: -3620297980973112321}
+  - component: {fileID: -6930230891186468681}
   m_Layer: 0
   m_Name: WeaponDrop 2
   m_TagString: HandGun
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9188805494942128004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.7603779, y: 2.758646, z: -75.75602}
-  m_LocalScale: {x: 0.523125, y: 0.3625, z: 1}
+  m_LocalScale: {x: 0.21578905, y: 0.18125, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,9 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc42c80ce3e019468fc765c3547c281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponToEquip: {fileID: 2103454610777021309, guid: 3103205b0316127418fce2ea6290377a, type: 3}
+  WeaponToEquip: {fileID: 2103454610777021311, guid: 3103205b0316127418fce2ea6290377a, type: 3}
   player: {fileID: 0}
---- !u!114 &-3620297980973112321
+  currentweapons: []
+--- !u!114 &-6930230891186468681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,5 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73128f439ec7a284c812a9bcb3377504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drop: {fileID: 0}
+  Drop: {fileID: 2103454610777021311, guid: 3103205b0316127418fce2ea6290377a, type: 3}
   spawnPoint: {fileID: 0}

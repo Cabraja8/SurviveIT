@@ -25,6 +25,8 @@ public class Weapon : MonoBehaviour
 
     public int HandgunBullets;
 
+    public int MaxAmmo;
+
     public float timeBetweenShots;
 
     private float shotTime;
@@ -124,15 +126,15 @@ public class Weapon : MonoBehaviour
       
         if(shells >9 ){
         int s;
-        int max=10;
+        int max=MaxAmmo;
         s= max-Ammo;
-        Ammo = 10;
+        Ammo = MaxAmmo;
         shells = shells-s;
         FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
         }
         else if (shells <10){
-            if(shells + Ammo == 10){
-                Ammo = 10;
+            if(shells + Ammo == MaxAmmo){
+                Ammo = MaxAmmo;
                 shells = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
             }
@@ -142,8 +144,8 @@ public class Weapon : MonoBehaviour
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
             }
         }
-        else if(shells == 10  ){
-            Ammo =10;
+        else if(shells == MaxAmmo  ){
+            Ammo =MaxAmmo;
             shells = 0;
             FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
             }else{
@@ -153,15 +155,15 @@ public class Weapon : MonoBehaviour
     void ReloadGun(){
         if(bullets >9 ){
         int s;
-        int max=10;
+        int max=MaxAmmo;
         s= max-Ammo;
-        Ammo = 10;
+        Ammo = MaxAmmo;
         bullets = bullets-s;
         FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
         }
         else if (bullets <10){
-            if(bullets + Ammo == 10){
-                Ammo = 10;
+            if(bullets + Ammo == MaxAmmo){
+                Ammo = MaxAmmo;
                 bullets = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
             }
@@ -171,8 +173,8 @@ public class Weapon : MonoBehaviour
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
             }
         }
-        else if(bullets == 10  ){
-            Ammo =10;
+        else if(bullets == MaxAmmo  ){
+            Ammo =MaxAmmo;
             bullets = 0;
             FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
             }else{
@@ -184,15 +186,15 @@ public class Weapon : MonoBehaviour
     void ReloadHandgun(){
          if(HandgunBullets >9 ){
         int s;
-        int max=10;
+        int max=MaxAmmo;
         s= max-Ammo;
-        Ammo = 10;
+        Ammo = MaxAmmo;
         HandgunBullets = HandgunBullets-s;
         FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
         }
         else if (HandgunBullets <10){
-            if(HandgunBullets + Ammo == 10){
-                Ammo = 10;
+            if(HandgunBullets + Ammo == MaxAmmo){
+                Ammo = MaxAmmo;
                 HandgunBullets = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
             }
@@ -202,8 +204,8 @@ public class Weapon : MonoBehaviour
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
             }
         }
-        else if(HandgunBullets == 10  ){
-            Ammo =10;
+        else if(HandgunBullets == MaxAmmo  ){
+            Ammo =MaxAmmo;
             HandgunBullets = 0;
             FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
             }else{

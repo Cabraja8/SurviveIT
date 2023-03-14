@@ -5,14 +5,17 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
 
-    public Weapon WeaponToEquip;
+    public GameObject WeaponToEquip;
     float distance = Mathf.Infinity;
     float distanceToPlayer = 3f;
     [SerializeField] Transform player;
 
+    public GameObject[] currentweapons;
+
     
     private void Start() {
         player = FindObjectOfType<Player>().transform;
+        currentweapons = FindObjectOfType<CurrentWeapons>().weaponsSlots;
         
     }
 
@@ -21,30 +24,23 @@ public class WeaponPickup : MonoBehaviour
 
         if (distance  <= distanceToPlayer ){
             if(Input.GetKeyDown(KeyCode.T)){
-                 Debug.Log("weapon picked up");
-      
-           if(tag == "Assault Rifle"){
-            
-            FindObjectOfType<LootBox>().DeleteDrop();
-            FindObjectOfType<CurrentWeapons>().weapon =WeaponToEquip;
-            FindObjectOfType<Player>().ChangeWeapon(WeaponToEquip);
-            FindObjectOfType<CurrentWeapons>().MainGunChange(WeaponToEquip);
+            for(int i=0;i<currentweapons.Length;i++){
+             if(currentweapons[i] != null){
+                if(currentweapons[i].name != WeaponToEquip.name){
+                Debug.Log("weapons are NOT the same");
+                 FindObjectOfType<CurrentWeapons>().pickup=WeaponToEquip.name;
+                 FindObjectOfType<CurrentWeapons>().ChangeWeapon(WeaponToEquip);
+                Destroy(gameObject);
+                    break;
+                }else{
+                    Debug.Log("You already equiped that weapon"); // funkcija koja samo prikazuje da ima equipano 
+                    break;
+                }
+                }
+            }
 
-           }
-           if(tag == "Shotgun"){
-            FindObjectOfType<LootBox>().DeleteDrop();
-            
-            FindObjectOfType<CurrentWeapons>().weapon =WeaponToEquip;
-            FindObjectOfType<Player>().ChangeWeapon(WeaponToEquip);
-            FindObjectOfType<CurrentWeapons>().MainGunChange(WeaponToEquip);
-           }
-           if(tag == "Handgun"){
-            FindObjectOfType<LootBox>().DeleteDrop();
-            
-            FindObjectOfType<CurrentWeapons>().weapon =WeaponToEquip;
-            FindObjectOfType<Player>().ChangeWeapon(WeaponToEquip);
-            FindObjectOfType<CurrentWeapons>().HandGunChange(WeaponToEquip);
-           }
+           
+          
             
             
             }

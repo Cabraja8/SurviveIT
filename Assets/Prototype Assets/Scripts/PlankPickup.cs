@@ -11,6 +11,7 @@ public class PlankPickup : MonoBehaviour
 
       
         if(other.gameObject.tag=="Player"){
+
             Debug.Log("planks pickedup");
             FindObjectOfType<BuildBarricade>().IncreasePlanks(plankAmount);
             Destroy(gameObject);

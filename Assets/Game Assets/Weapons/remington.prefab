@@ -305,6 +305,7 @@ MonoBehaviour:
   bullets: 10
   shells: 50
   HandgunBullets: 0
+  MaxAmmo: 0
   timeBetweenShots: 2
 --- !u!1 &9062708112150474071
 GameObject:

@@ -14,6 +14,7 @@ TagManager:
   - HandGun
   - Wall
   - Pickup
+  - BarricadeSpot
   layers:
   - Default
   - TransparentFX

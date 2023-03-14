@@ -23,11 +23,7 @@ public class LootBox : MonoBehaviour
             
     }
 
-    public void DeleteDrop(){
-        Destroy(this.gameObject);
-        
-        
-    }
+ 
 
    
 
