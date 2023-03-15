@@ -6,15 +6,21 @@ public class PlankPickup : MonoBehaviour
 {   
     int plankAmount = 1;
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
 
 
-      
+        if( FindObjectOfType<BuildBarricade>().planks ==3){
+            Debug.Log("Inventory full"); // Dodat UI za prikaz da je invetory full
+        }else{
+
         if(other.gameObject.tag=="Player"){
 
             Debug.Log("planks pickedup");
             FindObjectOfType<BuildBarricade>().IncreasePlanks(plankAmount);
             Destroy(gameObject);
         }
+        }
+
+      
     }
 }
