@@ -12,6 +12,8 @@ public class RangedMonster : Enemy
 
     public Transform shotPoint;
     public GameObject enemybullet;
+     float distance = Mathf.Infinity;
+    float distanceToPlayer = 4f;
 
    public override void Start() {
     base.Start();
@@ -20,6 +22,13 @@ public class RangedMonster : Enemy
 
 
     private void Update() {
+
+        distance = Vector2.Distance(Player.position,transform.position);
+
+         if (distance  <= distanceToPlayer ){
+
+        FindObjectOfType<Enemy>().ChangeTarget();
+         }
 
         if(Target != null){
         if(Vector2.Distance(transform.position,Target.position)>stopDistance){

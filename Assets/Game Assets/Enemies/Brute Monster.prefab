@@ -152,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_Sprite: {fileID: -8399772541321868063, guid: 4724afb43ba458e438396398feeedf4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -300,11 +300,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Target: {fileID: 0}
+  Player: {fileID: 0}
   speed: 2
   timeBetweenAttacks: 3
   damage: 24
   stopDistance: 2
   attackSpeed: 5
+  anim: {fileID: 0}
 --- !u!61 &4029299198355761930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_Sprite: {fileID: -3258914053520618500, guid: 4724afb43ba458e438396398feeedf4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -523,7 +525,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_Sprite: {fileID: -8399772541321868063, guid: 4724afb43ba458e438396398feeedf4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -605,7 +607,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_Sprite: {fileID: -3258914053520618500, guid: 4724afb43ba458e438396398feeedf4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

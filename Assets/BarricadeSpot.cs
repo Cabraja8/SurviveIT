@@ -23,6 +23,8 @@ public class BarricadeSpot : MonoBehaviour
     public bool IsBuiltSouth;
 
     public bool Hovering =false;
+
+    
     
     void OnMouseEnter() {
 
@@ -90,8 +92,21 @@ public class BarricadeSpot : MonoBehaviour
                         }
                 }
                 if(FindObjectOfType<BuildBarricade>().planks==2){
+
+                     if(DirectionName == "NorthSpot" && IsBuiltNorth){
+                
+                     Debug.Log("you already built this barricade");
+                        }else if(DirectionName == "WestSpot" && IsBuiltWest){
+                            Debug.Log("you already built this barricade");
+                        }else if(DirectionName == "EastSpot" && IsBuiltEast){
+                            Debug.Log("you already built this barricade");
+                        }else if(DirectionName == "SouthSpot" && IsBuiltSouth){
+                            Debug.Log("you already built this barricade");
+                        }
+                        else{
                    FindObjectOfType<BuildBarricade>().planks=0;
                    BuildBarricade();
+                        }
                     
                 }
                  if(FindObjectOfType<BuildBarricade>().planks==1){
@@ -119,7 +134,7 @@ public class BarricadeSpot : MonoBehaviour
         if(DirectionName == "NorthSpot" && !IsBuiltNorth){
             IsBuiltNorth = true;
             NorthBarricade.SetActive(true);
-          
+            
         }
          if(DirectionName == "WestSpot" && !IsBuiltWest){
             IsBuiltWest = true;
@@ -134,9 +149,46 @@ public class BarricadeSpot : MonoBehaviour
          if(DirectionName == "SouthSpot" && !IsBuiltSouth){
             IsBuiltSouth = true;
             SouthBarricade.SetActive(true);
+            
            
         }
 
         
+   }
+
+
+   public IEnumerator TakeDamage(string barricadeName){
+    Debug.Log("boom");
+    yield return new WaitForSeconds(2.0f);
+
+    Debug.Log("boom");
+
+    if(barricadeName == "NorthBarricade" ){
+        IsBuiltNorth = false;
+        NorthBarricade.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
+        
+    }
+     if(barricadeName == "EastBarricade" ){
+        IsBuiltEast = false;
+        EastBarricade.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
+        
+    }
+    if(barricadeName == "WestBarricade" ){
+        IsBuiltWest = false;
+        WestBarricade.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
+        
+    }
+     if(barricadeName == "SouthBarricade" ){
+        IsBuiltSouth = false;
+        SouthBarricade.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
+        
+    }
+   
+     
+
    }
 }

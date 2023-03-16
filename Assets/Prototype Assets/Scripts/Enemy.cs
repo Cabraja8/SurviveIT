@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     public int Health;
     
     public Transform Target;
+    public Transform Player;
+    float distance = Mathf.Infinity;
+    float distanceToPlayer = 4f;
 
     public float speed;
     public float timeBetweenAttacks;
@@ -16,6 +19,15 @@ public class Enemy : MonoBehaviour
      public virtual void Start() {
        Target = GameObject.FindGameObjectWithTag("Zone").transform;
         
+    }
+
+    private  void Update() {
+        distance = Vector2.Distance(Player.position,transform.position);
+
+         if (distance  <= distanceToPlayer ){
+
+            ChangeTarget();
+         }
     }
 
 
