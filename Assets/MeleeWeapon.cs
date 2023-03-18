@@ -13,9 +13,17 @@ public class MeleeWeapon : MonoBehaviour
 
      public float timeBetweenAttacks;
 
+     public int damage;
+
+     public Transform attackPoint;
+
+     public float attackRange = 0.5f;
+
+     public LayerMask enemyLayers;
+
       void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
+        
         
         }
  
@@ -45,9 +53,50 @@ public class MeleeWeapon : MonoBehaviour
     }
 
     void Attack(){
+
+        Debug.Log(gameObject.name);
+
+        if(gameObject.name=="Knife"){
+        anim.SetTrigger("Knife");
+        }
+         if(gameObject.name=="crowbar"){
         anim.SetTrigger("Attack");
+        }
+
         Debug.Log("attack");
         AttackTime = Time.time + timeBetweenAttacks;
+
+
+       Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange,enemyLayers);
+
+       foreach (Collider2D enemy in hitEnemies)
+       {
+        Debug.Log("we hit" + enemy.name);
+
+
+         if(enemy.name.Contains("Shadow Monster")){ 
+        enemy.GetComponent<Enemy>().TakeDamage(damage);
+         }
+         if(enemy.name.Contains("Bat Monster")){ 
+        enemy.GetComponent<Enemy>().TakeDamage(damage);
+         }
+           if(enemy.name.Contains("Brute Monster")){ 
+        enemy.GetComponent<Enemy>().TakeDamage(damage);
+         }
+         
+        if(enemy.name.Contains("LootBox")){ 
+        enemy.GetComponent<LootBox>().DestroyBox();
+        }
+          
+       
+       }
+    }
+
+    private void OnDrawGizmosSelected() {
+        if(attackPoint ==null){
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
     }
 
     

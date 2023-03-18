@@ -83,7 +83,7 @@ public class CurrentWeapons : MonoBehaviour
                 currentWeaponIndex = 0;
             }
             currentWeaponIndex = 0;
-           
+            weaponsSlots[0] = null;
             weaponsSlots[0] =weapon;
             weaponsSlots[0].SetActive(true);
            
@@ -109,7 +109,7 @@ public class CurrentWeapons : MonoBehaviour
             weaponIndex = i;
             weaponsSlots[0] = Weapons[3];
           
-            SetCurrentWeapon(weaponIndex);
+            SetCurrentWeapon(0);
             
             
              }
@@ -184,6 +184,40 @@ public class CurrentWeapons : MonoBehaviour
             weaponIndex = i;
              weaponsSlots[1] = Weapons[2];
             SetCurrentWeapon(1);
+            
+             }
+             else if(pickup=="crowbar"){
+                 if(currentWeaponIndex==2){
+                weaponsSlots[2].SetActive(false);
+                
+                weaponsSlots[2] = null;
+                currentWeaponIndex = 2;
+            }
+           
+            currentWeaponIndex=2;
+                weaponsSlots[2] = null;
+            weaponsSlots[2] =weapon;
+            weaponsSlots[2].SetActive(true);
+            weaponIndex = i;
+             weaponsSlots[2] = Weapons[6];
+            SetCurrentWeapon(2);
+            
+             }
+              else if(pickup=="Knife"){
+                 if(currentWeaponIndex==2){
+                weaponsSlots[2].SetActive(false);
+                
+                weaponsSlots[2] = null;
+                currentWeaponIndex = 2;
+            }
+           
+            currentWeaponIndex=2;
+                weaponsSlots[2] = null;
+            weaponsSlots[2] =weapon;
+            weaponsSlots[2].SetActive(true);
+            weaponIndex = i;
+             weaponsSlots[2] = Weapons[7];
+            SetCurrentWeapon(2);
             
              }
             }
