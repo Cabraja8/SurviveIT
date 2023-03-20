@@ -21,6 +21,10 @@ public class MeleeWeapon : MonoBehaviour
 
      public LayerMask enemyLayers;
 
+     public AudioSource audiosource;
+
+    public AudioClip AttackSound;
+
       void Start()
     {
         
@@ -56,6 +60,7 @@ public class MeleeWeapon : MonoBehaviour
 
         Debug.Log(gameObject.name);
 
+        audiosource.PlayOneShot(AttackSound);
         if(gameObject.name=="Knife"){
         anim.SetTrigger("Knife");
         }

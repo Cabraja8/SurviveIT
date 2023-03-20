@@ -166,3 +166,5 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  audiosource: {fileID: 0}
+  AttackSound: {fileID: 0}

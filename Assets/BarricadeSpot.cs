@@ -158,33 +158,33 @@ public class BarricadeSpot : MonoBehaviour
 
 
    public IEnumerator TakeDamage(string barricadeName){
-    Debug.Log("boom");
+   
     yield return new WaitForSeconds(2.0f);
 
-    Debug.Log("boom");
+
 
     if(barricadeName == "NorthBarricade" ){
         IsBuiltNorth = false;
         NorthBarricade.SetActive(false);
-        yield return new WaitForSeconds(2.0f);
+     
         
     }
      if(barricadeName == "EastBarricade" ){
         IsBuiltEast = false;
         EastBarricade.SetActive(false);
-        yield return new WaitForSeconds(2.0f);
+        
         
     }
     if(barricadeName == "WestBarricade" ){
         IsBuiltWest = false;
         WestBarricade.SetActive(false);
-        yield return new WaitForSeconds(2.0f);
+       
         
     }
      if(barricadeName == "SouthBarricade" ){
         IsBuiltSouth = false;
         SouthBarricade.SetActive(false);
-        yield return new WaitForSeconds(2.0f);
+        
         
     }
    

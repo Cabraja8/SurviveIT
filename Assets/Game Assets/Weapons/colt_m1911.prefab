@@ -337,3 +337,7 @@ MonoBehaviour:
   HandgunBullets: 0
   MaxAmmo: 0
   timeBetweenShots: 0.7
+  audiosource: {fileID: 0}
+  ReloadSound: {fileID: 0}
+  ShotSound: {fileID: 0}
+  Reloading: 0
