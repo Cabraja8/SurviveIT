@@ -94,6 +94,23 @@ public class CurrentWeapons : MonoBehaviour
             
             
              }
+         else if(pickup=="glock-18"){
+            if(currentWeaponIndex==1){
+                weaponsSlots[1].SetActive(false);
+                
+                weaponsSlots[1] = null;
+                currentWeaponIndex = 1;
+            }
+            
+            currentWeaponIndex=1;
+            weaponsSlots[1] = null;
+            weaponsSlots[1] =weapon;
+            weaponsSlots[1].SetActive(true);
+            weaponIndex = i;
+             weaponsSlots[1] = Weapons[0];
+            SetCurrentWeapon(1);
+            
+             }
              else if(pickup=="m14"){
                  if(currentWeaponIndex==0){
                 weaponsSlots[0].SetActive(false);
@@ -152,23 +169,6 @@ public class CurrentWeapons : MonoBehaviour
         }
 
          
-         else if(pickup=="glock-18"){
-            if(currentWeaponIndex==1){
-                weaponsSlots[1].SetActive(false);
-                
-                weaponsSlots[1] = null;
-                currentWeaponIndex = 1;
-            }
-            
-            currentWeaponIndex=1;
-            weaponsSlots[1] = null;
-            weaponsSlots[1] =weapon;
-            weaponsSlots[1].SetActive(true);
-            weaponIndex = i;
-             weaponsSlots[1] = Weapons[0];
-            SetCurrentWeapon(1);
-            
-             }
               else if(pickup=="colt_m1911"){
                  if(currentWeaponIndex==1){
                 weaponsSlots[1].SetActive(false);

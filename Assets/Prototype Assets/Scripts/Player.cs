@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
    public int health;
     private Vector2 MoveAmount;
 
+    public AudioSource audiosource;
+
+    public AudioClip pickupsound;
+
 //    public HealthBar healthBar;
 
 
@@ -44,12 +48,17 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount){
 
         health = health - damageAmount;
+        
         // healthBar.SetHealth(health);
         if(health <=0){
             Destroy(this.gameObject);
         }
     }
 
+
+    public void PickupItem(){
+        audiosource.PlayOneShot(pickupsound);
+    }
 
     
     public void RecoverHealth(int healthAmount){

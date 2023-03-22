@@ -26,6 +26,13 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damageAmount){
 
         Health = Health - damageAmount;
+
+        if(name == "Shadow Monster" || name=="Brute Monster"){
+        FindObjectOfType<MeleeMonster>().DamageTaken();
+        }
+        if(name=="Bat Monster"){
+            FindObjectOfType<RangedMonster>().DamageTaken();
+        }
         if(Health <=0){
             Debug.Log("dmg");
             Destroy(this.gameObject);

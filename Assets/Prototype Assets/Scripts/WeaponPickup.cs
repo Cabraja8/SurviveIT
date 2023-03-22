@@ -9,8 +9,11 @@ public class WeaponPickup : MonoBehaviour
     float distance = Mathf.Infinity;
     float distanceToPlayer = 3f;
     [SerializeField] Transform player;
+    public bool isEquiped=false;
 
     public GameObject[] currentweapons;
+
+   
 
     
     private void Start() {
@@ -25,18 +28,26 @@ public class WeaponPickup : MonoBehaviour
         if (distance  <= distanceToPlayer ){
             if(Input.GetKeyDown(KeyCode.T)){
             for(int i=0;i<currentweapons.Length;i++){
-             if(currentweapons[i] != null){
-                if(currentweapons[i].name != WeaponToEquip.name){
-                Debug.Log("weapons are NOT the same");
+             if(currentweapons[i] != null ){
+                if(currentweapons[i].name == WeaponToEquip.name){
+                    isEquiped=true;
+                    Debug.Log(currentweapons[i].name + " name 1");
+                    Debug.Log("You already equiped that weapon"); // funkcija koja samo prikazuje da ima equipano 
+                 Invoke("UnEquiped",2.0f);
+                }else{
+                 if(!isEquiped){
+                 FindObjectOfType<Player>().PickupItem();
                  FindObjectOfType<CurrentWeapons>().pickup=WeaponToEquip.name;
                  FindObjectOfType<CurrentWeapons>().ChangeWeapon(WeaponToEquip);
-                Destroy(gameObject);
+                 Destroy(gameObject);
                     break;
-                }else{
-                    Debug.Log("You already equiped that weapon"); // funkcija koja samo prikazuje da ima equipano 
-                    break;
+                 }
                 }
+
+             }
+
                 }
+                   
             }
 
            
@@ -45,6 +56,10 @@ public class WeaponPickup : MonoBehaviour
             
             }
         }
+
+        public void UnEquiped(){
+             isEquiped = false;
+        }
     }
     
-}
+

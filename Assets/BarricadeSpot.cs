@@ -24,7 +24,10 @@ public class BarricadeSpot : MonoBehaviour
 
     public bool Hovering =false;
 
-    
+    public AudioSource audisource;
+
+    public AudioClip BreakSound;
+    public AudioClip BuildSound;
     
     void OnMouseEnter() {
 
@@ -53,6 +56,9 @@ public class BarricadeSpot : MonoBehaviour
 
     InputForBuilding();
 
+    if(!InRange || !Hovering){
+        DirectionName = null;
+    }
 
 
     distance = Vector2.Distance(player.position,transform.position);
@@ -88,7 +94,8 @@ public class BarricadeSpot : MonoBehaviour
                         else{
 
                     FindObjectOfType<BuildBarricade>().planks=1;
-                    BuildBarricade();
+                    
+                    Invoke("BuildBarricade",1.3f);
                         }
                 }
                 if(FindObjectOfType<BuildBarricade>().planks==2){
@@ -105,7 +112,7 @@ public class BarricadeSpot : MonoBehaviour
                         }
                         else{
                    FindObjectOfType<BuildBarricade>().planks=0;
-                   BuildBarricade();
+                  Invoke("BuildBarricade",1.3f);
                         }
                     
                 }
@@ -130,6 +137,7 @@ public class BarricadeSpot : MonoBehaviour
 
    public void BuildBarricade(){
        
+       audisource.PlayOneShot(BuildSound);
 
         if(DirectionName == "NorthSpot" && !IsBuiltNorth){
             IsBuiltNorth = true;
@@ -161,7 +169,7 @@ public class BarricadeSpot : MonoBehaviour
    
     yield return new WaitForSeconds(2.0f);
 
-
+    audisource.PlayOneShot(BreakSound);
 
     if(barricadeName == "NorthBarricade" ){
         IsBuiltNorth = false;

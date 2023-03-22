@@ -15,6 +15,9 @@ public class RangedMonster : Enemy
      float distance = Mathf.Infinity;
     float distanceToPlayer = 4f;
 
+     public AudioSource audiosource;
+   public AudioClip Growl;
+
    public override void Start() {
     base.Start();
         anim = GetComponent<Animator>();
@@ -41,6 +44,14 @@ public class RangedMonster : Enemy
         
         }
     }
+     public void DamageTaken(){
+        anim.SetTrigger("damaged");
+    }
+    public void MonsterGrowl(){
+        audiosource.PlayOneShot(Growl);
+        Debug.Log("growl");
+    }
+    
 
     public void RangedAttack(){
          Vector2 direction = Target.position - shotPoint.position;
@@ -50,6 +61,11 @@ public class RangedMonster : Enemy
         Quaternion rotation = Quaternion.AngleAxis(angle -90, Vector3.forward);
 
         shotPoint.rotation = rotation;
+
+        if(!audiosource.isPlaying){
+
+       MonsterGrowl();
+        }
 
         Instantiate(enemybullet,shotPoint.position,shotPoint.rotation);
 

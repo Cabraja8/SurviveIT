@@ -13,6 +13,9 @@ public class MeleeMonster : Enemy
    public float attackSpeed;
    public Animator anim;
 
+   public AudioSource audiosource;
+   public AudioClip Growl;
+
    private void Start() {
     anim = GetComponent<Animator>();
    }
@@ -21,6 +24,9 @@ public class MeleeMonster : Enemy
     // Update is called once per frame
     void Update()
     {   
+
+        
+
         distance = Vector2.Distance(Player.position,transform.position);
 
          if (distance  <= distanceToPlayer ){
@@ -56,13 +62,20 @@ public class MeleeMonster : Enemy
         }
     }
 
+    public void MonsterGrowl(){
+        audiosource.PlayOneShot(Growl);
+        Debug.Log("growl");
+    }
+
+    public void DamageTaken(){
+        anim.SetTrigger("damaged");
+    }
     
-
-   
-
     IEnumerator Attack(){
         if(Target.tag=="Player"){
         Target.GetComponent<Player>().TakeDamage(damage);
+        
+        
         }
         if(Target.tag=="Zone"){
         Target.GetComponent<Zone>().TakeDamage(damage);
@@ -71,6 +84,11 @@ public class MeleeMonster : Enemy
         Vector2 originalPosition = transform.position;
         Vector2 targetPosition = Target.position;
         float percent=0;
+
+        if(!audiosource.isPlaying){
+
+       MonsterGrowl();
+        }
 
         while(percent<=1){
             percent +=Time.deltaTime * attackSpeed;
