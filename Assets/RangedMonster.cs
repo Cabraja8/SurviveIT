@@ -18,6 +18,8 @@ public class RangedMonster : Enemy
      public AudioSource audiosource;
    public AudioClip Growl;
 
+   public GameObject death;
+
    public override void Start() {
     base.Start();
         anim = GetComponent<Animator>();
@@ -52,7 +54,16 @@ public class RangedMonster : Enemy
         Debug.Log("growl");
     }
     
+    public void Death(){
+        Debug.Log("dead");
+        Instantiate(death,transform.position,transform.rotation);
+        MonsterGrowl();
+        Destroy(this.gameObject);
+    }
 
+  
+
+   
     public void RangedAttack(){
          Vector2 direction = Target.position - shotPoint.position;
 

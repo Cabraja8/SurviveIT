@@ -16,7 +16,7 @@ public class Zone : MonoBehaviour
         }
     }
 
-        void GameOver(){
+       public void GameOver(){
             Debug.Log("Game Over");
         }
 }

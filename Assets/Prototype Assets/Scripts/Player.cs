@@ -52,7 +52,8 @@ public class Player : MonoBehaviour
         // healthBar.SetHealth(health);
         if(health <=0){
             Destroy(this.gameObject);
-        }
+            FindObjectOfType<Zone>().GameOver();
+                    }
     }
 
 

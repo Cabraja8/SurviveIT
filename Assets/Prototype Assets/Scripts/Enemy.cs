@@ -15,8 +15,11 @@ public class Enemy : MonoBehaviour
 
     public int damage;
 
+    public Animator deathAnim;
+
      public virtual void Start() {
        Target = GameObject.FindGameObjectWithTag("Zone").transform;
+       deathAnim= GetComponent<Animator>();
         
     }
 
@@ -34,18 +37,30 @@ public class Enemy : MonoBehaviour
             FindObjectOfType<RangedMonster>().DamageTaken();
         }
         if(Health <=0){
+             if(name == "Shadow Monster" || name=="Brute Monster"){
+            FindObjectOfType<MeleeMonster>().speed=0;
+            FindObjectOfType<MeleeMonster>().MonsterGrowl();
+            damage = 0;
+            deathAnim.SetBool("death",true);
+             }
+              else if(name=="Bat Monster"){
+                
+                FindObjectOfType<RangedMonster>().Death();
+              }
+        }
+
+    }
+      
+
+        public void Death(){
             Debug.Log("dmg");
             Destroy(this.gameObject);
+
         }
-    }
     public void ChangeTarget(){
         Target =  GameObject.FindGameObjectWithTag("Player").transform;
     }
 
 
-     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag=="Player"){
-           ChangeTarget();
-        }
-    }
+     
 }
