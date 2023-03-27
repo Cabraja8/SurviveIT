@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlankPickup : MonoBehaviour
 {   
     int plankAmount = 1;
@@ -19,6 +20,7 @@ public class PlankPickup : MonoBehaviour
             FindObjectOfType<Player>().PickupItem();
             Debug.Log("planks pickedup");
             FindObjectOfType<BuildBarricade>().IncreasePlanks(plankAmount);
+            FindObjectOfType<BuildBarricade>().UpdateDisplay();
             Destroy(gameObject);
         }
         }

@@ -68,6 +68,11 @@ public class Weapon : MonoBehaviour
        
     
     if(Ammo >0){
+        if (Input.GetMouseButtonDown(0)){
+            Fire1.enabled = false;
+            Fire2.enabled = false;
+        }
+
         if(Input.GetMouseButton(0)){
             if(Time.time >= shotTime){
                 if(!Reloading){
@@ -160,23 +165,27 @@ public class Weapon : MonoBehaviour
         Ammo = MaxAmmo;
         shells = shells-s;
         FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
+        FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
         }
         else if (shells <10){
             if(shells + Ammo == MaxAmmo){
                 Ammo = MaxAmmo;
                 shells = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
+                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }
             else{
                 Ammo = shells + Ammo;
                 shells = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
+                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }
         }
         else if(shells == MaxAmmo  ){
             Ammo =MaxAmmo;
             shells = 0;
             FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
+            FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }else{
             Debug.Log("No Ammo Left");
         }
@@ -191,23 +200,27 @@ public class Weapon : MonoBehaviour
         Ammo = MaxAmmo;
         bullets = bullets-s;
         FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
+        FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
         }
         else if (bullets <10){
             if(bullets + Ammo == MaxAmmo){
                 Ammo = MaxAmmo;
                 bullets = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
+                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }
             else{
                 Ammo = bullets + Ammo;
                 bullets = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
+                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }
         }
         else if(bullets == MaxAmmo  ){
             Ammo =MaxAmmo;
             bullets = 0;
             FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
+            FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }else{
             Debug.Log("No Ammo Left");
         }
@@ -215,6 +228,7 @@ public class Weapon : MonoBehaviour
     }
 
     void ReloadHandgun(){
+
 
         Reloading = false;
          if(HandgunBullets >9 ){
@@ -224,23 +238,27 @@ public class Weapon : MonoBehaviour
         Ammo = MaxAmmo;
         HandgunBullets = HandgunBullets-s;
         FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
+        FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
         }
         else if (HandgunBullets <10){
             if(HandgunBullets + Ammo == MaxAmmo){
                 Ammo = MaxAmmo;
                 HandgunBullets = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
+                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }
             else{
                 Ammo = HandgunBullets + Ammo;
                 HandgunBullets = 0;
                 FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
+                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }
         }
         else if(HandgunBullets == MaxAmmo  ){
             Ammo =MaxAmmo;
             HandgunBullets = 0;
             FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
+           FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
             }else{
             Debug.Log("No Ammo Left");
         }

@@ -15,6 +15,7 @@ public class BarricadeSpot : MonoBehaviour
     public GameObject EastBarricade;
     public GameObject SouthBarricade;
 
+
     public string DirectionName;
 
     public bool IsBuiltNorth;
@@ -76,10 +77,14 @@ public class BarricadeSpot : MonoBehaviour
         }
    }
 
+//    void OnMouseExit(){
+//     Hovering = false;
+//    }
+
    void InputForBuilding(){
        
            
-            if(Input.GetKeyDown(KeyCode.F) && InRange &&Hovering){
+            if(Input.GetKeyDown(KeyCode.F) && InRange && Hovering){
                 if(FindObjectOfType<BuildBarricade>().planks==3){
                      if(DirectionName == "NorthSpot" && IsBuiltNorth){
                 
@@ -94,13 +99,13 @@ public class BarricadeSpot : MonoBehaviour
                         else{
 
                     FindObjectOfType<BuildBarricade>().planks=1;
-                    
-                    Invoke("BuildBarricade",1.3f);
+                    FindObjectOfType<BuildBarricade>().UpdateDisplay();
+                    Invoke("BuildBarricade",0.5f);
                         }
                 }
                 if(FindObjectOfType<BuildBarricade>().planks==2){
 
-                     if(DirectionName == "NorthSpot" && IsBuiltNorth){
+                     if(DirectionName == "NorthSpot" && IsBuiltNorth ){
                 
                      Debug.Log("you already built this barricade");
                         }else if(DirectionName == "WestSpot" && IsBuiltWest){
@@ -112,7 +117,8 @@ public class BarricadeSpot : MonoBehaviour
                         }
                         else{
                    FindObjectOfType<BuildBarricade>().planks=0;
-                  Invoke("BuildBarricade",1.3f);
+                   FindObjectOfType<BuildBarricade>().UpdateDisplay();
+                  Invoke("BuildBarricade",0.5f);
                         }
                     
                 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class Player : MonoBehaviour
 
     public AudioClip pickupsound;
 
-//    public HealthBar healthBar;
+  
+
+   public HealthBar healthBar;
 
 
 
@@ -48,9 +51,11 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount){
 
         health = health - damageAmount;
-        
-        // healthBar.SetHealth(health);
+
+        healthBar.SetHealth(health);
+     
         if(health <=0){
+            healthBar.SetHealth(health);
             Destroy(this.gameObject);
             FindObjectOfType<Zone>().GameOver();
                     }
@@ -64,7 +69,7 @@ public class Player : MonoBehaviour
     
     public void RecoverHealth(int healthAmount){
         health = health + healthAmount;
-
+        healthBar.SetHealth(health);
         if(health > 100){
             health = 100;
         }
