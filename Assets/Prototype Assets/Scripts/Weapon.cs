@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Weapon : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class Weapon : MonoBehaviour
 
     public AudioClip ShotSound;
 
+    public TMP_Text reloadSign;
+
     public bool Reloading= false;
 
     
@@ -52,7 +55,8 @@ public class Weapon : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        reloadSign.enabled=false;
         rend = GetComponent<SpriteRenderer>();
         Fire1.enabled = false;
         Fire2.enabled = false;
@@ -89,10 +93,15 @@ public class Weapon : MonoBehaviour
         
         Fire1.enabled = false;
         Fire2.enabled = false;
+        reloadSign.enabled=true;
+    }
+    if(Reloading){
+        reloadSign.enabled=false;
     }
 
     if(Input.GetKeyDown(KeyCode.R)){
 
+        
         if(Ammo == MaxAmmo){
             Debug.Log("ammo full");
         }
@@ -114,7 +123,7 @@ public class Weapon : MonoBehaviour
         if(Ammo != MaxAmmo){
         Reloading = true;
         audiosource.PlayOneShot(ReloadSound);
-            
+        
         Invoke("ReloadHandgun",1.0f);
             }
         }

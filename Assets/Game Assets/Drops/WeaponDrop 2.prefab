@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9188805494942128003}
   - component: {fileID: 9188805494942128002}
   - component: {fileID: 9188805494942128005}
-  - component: {fileID: -6930230891186468681}
   - component: {fileID: -7606520719134377939}
   m_Layer: 0
   m_Name: WeaponDrop 2
@@ -97,27 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc42c80ce3e019468fc765c3547c281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EquipSign: {fileID: 0}
+  AlreadyEquiped: {fileID: 0}
   WeaponToEquip: {fileID: 2103454610777021311, guid: 3103205b0316127418fce2ea6290377a, type: 3}
   player: {fileID: 0}
+  isEquiped: 0
   currentweapons: []
-  audiosource: {fileID: 0}
-  pickupsound: {fileID: 0}
---- !u!114 &-6930230891186468681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9188805494942128004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73128f439ec7a284c812a9bcb3377504, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Drop: {fileID: 2103454610777021311, guid: 3103205b0316127418fce2ea6290377a, type: 3}
-  spawnPoint: {fileID: 0}
-  audiosource: {fileID: 0}
-  BreakSound: {fileID: 0}
 --- !u!82 &-7606520719134377939
 AudioSource:
   m_ObjectHideFlags: 0

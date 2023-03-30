@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BarricadeSpot : MonoBehaviour
 {   
@@ -15,6 +17,7 @@ public class BarricadeSpot : MonoBehaviour
     public GameObject EastBarricade;
     public GameObject SouthBarricade;
 
+   
 
     public string DirectionName;
 
@@ -51,6 +54,7 @@ public class BarricadeSpot : MonoBehaviour
      WestBarricade.SetActive(false);
      EastBarricade.SetActive(false);
      SouthBarricade.SetActive(false);
+     
    }
 
    private void Update() {
@@ -60,6 +64,8 @@ public class BarricadeSpot : MonoBehaviour
     if(!InRange || !Hovering){
         DirectionName = null;
     }
+
+   
 
 
     distance = Vector2.Distance(player.position,transform.position);
@@ -84,7 +90,7 @@ public class BarricadeSpot : MonoBehaviour
    void InputForBuilding(){
        
            
-            if(Input.GetKeyDown(KeyCode.F) && InRange && Hovering){
+            if(Input.GetKeyDown(KeyCode.F) && InRange && Hovering && DirectionName != "" ){
                 if(FindObjectOfType<BuildBarricade>().planks==3){
                      if(DirectionName == "NorthSpot" && IsBuiltNorth){
                 
@@ -105,7 +111,7 @@ public class BarricadeSpot : MonoBehaviour
                 }
                 if(FindObjectOfType<BuildBarricade>().planks==2){
 
-                     if(DirectionName == "NorthSpot" && IsBuiltNorth ){
+                     if(DirectionName == "NorthSpot" && IsBuiltNorth && DirectionName != "" ){
                 
                      Debug.Log("you already built this barricade");
                         }else if(DirectionName == "WestSpot" && IsBuiltWest){

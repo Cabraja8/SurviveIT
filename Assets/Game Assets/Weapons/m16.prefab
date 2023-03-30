@@ -255,6 +255,11 @@ MonoBehaviour:
   HandgunBullets: 0
   MaxAmmo: 0
   timeBetweenShots: 0.2
+  audiosource: {fileID: 0}
+  ReloadSound: {fileID: 0}
+  ShotSound: {fileID: 0}
+  reloadSign: {fileID: 0}
+  Reloading: 0
 --- !u!1 &5170625434031750010
 GameObject:
   m_ObjectHideFlags: 0

@@ -228,6 +228,7 @@ MonoBehaviour:
   audiosource: {fileID: 0}
   ReloadSound: {fileID: 0}
   ShotSound: {fileID: 0}
+  reloadSign: {fileID: 0}
   Reloading: 0
 --- !u!1 &5102574295179779965
 GameObject:
