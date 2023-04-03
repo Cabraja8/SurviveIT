@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MeleeMonster : Enemy
 {
@@ -15,9 +16,15 @@ public class MeleeMonster : Enemy
 
    public AudioSource audiosource;
    public AudioClip Growl;
+   
+   public Slider slider;
 
    private void Start() {
     anim = GetComponent<Animator>();
+   }
+
+   private void Awake() {
+    UpdateDisplay();
    }
     
 
@@ -69,6 +76,11 @@ public class MeleeMonster : Enemy
 
     public void DamageTaken(){
         anim.SetTrigger("damaged");
+        UpdateDisplay();
+    }
+
+    public void UpdateDisplay(){
+        slider.value = FindObjectOfType<Enemy>().Health;
     }
     
     IEnumerator Attack(){

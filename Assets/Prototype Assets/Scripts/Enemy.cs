@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
              if(name == "Shadow Monster" || name=="Brute Monster"){
             FindObjectOfType<MeleeMonster>().speed=0;
             FindObjectOfType<MeleeMonster>().MonsterGrowl();
+            FindObjectOfType<MeleeMonster>().UpdateDisplay();
             damage = 0;
             deathAnim.SetBool("death",true);
              }

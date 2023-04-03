@@ -154,6 +154,7 @@ public class Weapon : MonoBehaviour
 
     
     public Weapon GetCurrentWeapon(){
+        
        return FindObjectOfType<Weapon>();
     }
     void GetAmmo(){

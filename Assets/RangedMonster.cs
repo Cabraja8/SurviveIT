@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RangedMonster : Enemy
 {
@@ -19,6 +20,8 @@ public class RangedMonster : Enemy
    public AudioClip Growl;
 
    public GameObject death;
+
+   public Slider slider;
 
    public override void Start() {
     base.Start();
@@ -48,10 +51,15 @@ public class RangedMonster : Enemy
     }
      public void DamageTaken(){
         anim.SetTrigger("damaged");
+        UpdateDisplay();
     }
     public void MonsterGrowl(){
         audiosource.PlayOneShot(Growl);
         Debug.Log("growl");
+    }
+
+   public void UpdateDisplay(){
+        slider.value = FindObjectOfType<Enemy>().Health;
     }
     
     public void Death(){

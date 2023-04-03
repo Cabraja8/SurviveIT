@@ -1,6 +1,7 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrentWeapons : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class CurrentWeapons : MonoBehaviour
    
    public KeyCode[] switchKeys = { KeyCode.Alpha1, KeyCode.Alpha2 , KeyCode.Alpha3 };
     public GameObject[] weaponsSlots;
+
+    public Image[] weaponimgIndex;
+    public Image[] CurrentWeaponImg;
+    public Sprite[] ImageOfWeapons;
 
     public GameObject[] Weapons;
     public int currentWeaponIndex = 1;
@@ -23,6 +28,8 @@ public class CurrentWeapons : MonoBehaviour
             weaponsSlots[i].SetActive(false);
         }
         }
+        SetCurrentIndex(1);
+      
     }
 
      private void Update()
@@ -35,14 +42,34 @@ public class CurrentWeapons : MonoBehaviour
             {
                 currentWeaponIndex = i;
                 SetCurrentWeapon(currentWeaponIndex);
+                SetCurrentIndex(currentWeaponIndex);
             }
         }
         }
     }
 
+    public void SetCurrentIndex(int weaponIndex){
+          for (int i = 0; i < weaponimgIndex.Length; i++)
+        {
+            if (i == weaponIndex)
+            {   
+                 if(weaponimgIndex[i] != null){
+                weaponimgIndex[i].enabled=true;
+                 }
+            }
+            else
+            {   
+                 if(weaponimgIndex[i] != null){
+                weaponimgIndex[i].enabled=false;
+                 }
+            }
+        }
+
+    }
+
     public void SetCurrentWeapon(int weaponIndex)
     {
-        // Deactivate all weapons except for the selected one
+        
         for (int i = 0; i < weaponsSlots.Length; i++)
         {
             if (i == weaponIndex)
@@ -78,10 +105,13 @@ public class CurrentWeapons : MonoBehaviour
          if(pickup=="ak47"){
             if(currentWeaponIndex==0){
                 weaponsSlots[0].SetActive(false);
+                CurrentWeaponImg[0].sprite = ImageOfWeapons[1];
                 
                 weaponsSlots[0] = null;
                 currentWeaponIndex = 0;
             }
+            SetCurrentIndex(0);
+            CurrentWeaponImg[0].sprite = ImageOfWeapons[1];
             currentWeaponIndex = 0;
             weaponsSlots[0] = null;
             weaponsSlots[0] =weapon;
@@ -97,11 +127,13 @@ public class CurrentWeapons : MonoBehaviour
          else if(pickup=="glock-18"){
             if(currentWeaponIndex==1){
                 weaponsSlots[1].SetActive(false);
-                
+                CurrentWeaponImg[1].sprite = ImageOfWeapons[0];
                 weaponsSlots[1] = null;
                 currentWeaponIndex = 1;
+                SetCurrentIndex(1);
             }
-            
+            SetCurrentIndex(1);
+            CurrentWeaponImg[1].sprite = ImageOfWeapons[0];
             currentWeaponIndex=1;
             weaponsSlots[1] = null;
             weaponsSlots[1] =weapon;
@@ -114,11 +146,13 @@ public class CurrentWeapons : MonoBehaviour
              else if(pickup=="m14"){
                  if(currentWeaponIndex==0){
                 weaponsSlots[0].SetActive(false);
-                
+                CurrentWeaponImg[0].sprite = ImageOfWeapons[3];
                 weaponsSlots[0] = null;
                 currentWeaponIndex = 0;
+                SetCurrentIndex(0);
             }
-            
+            CurrentWeaponImg[0].sprite = ImageOfWeapons[3];
+            SetCurrentIndex(0);
             currentWeaponIndex = 0;
             weaponsSlots[0] = null;
             weaponsSlots[0] =weapon;
@@ -133,11 +167,13 @@ public class CurrentWeapons : MonoBehaviour
         else if(pickup=="m16"){
             if(currentWeaponIndex==0){
                 weaponsSlots[0].SetActive(false);
-                
+                CurrentWeaponImg[0].sprite = ImageOfWeapons[4];
                 weaponsSlots[0] = null;
                 currentWeaponIndex = 0;
+                SetCurrentIndex(0);
             }
-            
+            SetCurrentIndex(0);
+            CurrentWeaponImg[0].sprite = ImageOfWeapons[4];
             currentWeaponIndex = 0;
             weaponsSlots[0] = null;
             weaponsSlots[0] =weapon;
@@ -151,11 +187,13 @@ public class CurrentWeapons : MonoBehaviour
         else if(pickup=="remington"){
             if(currentWeaponIndex==0){
                 weaponsSlots[0].SetActive(false);
-                
+                CurrentWeaponImg[0].sprite = ImageOfWeapons[5];
                 weaponsSlots[0] = null;
                 currentWeaponIndex = 0;
+                SetCurrentIndex(0);
             }
-            
+            SetCurrentIndex(0);
+            CurrentWeaponImg[0].sprite = ImageOfWeapons[5];
             currentWeaponIndex = 0;
             weaponsSlots[0] = null;
             weaponsSlots[0] =weapon;
@@ -172,13 +210,16 @@ public class CurrentWeapons : MonoBehaviour
               else if(pickup=="colt_m1911"){
                  if(currentWeaponIndex==1){
                 weaponsSlots[1].SetActive(false);
-                
+                CurrentWeaponImg[1].sprite = ImageOfWeapons[2];
+                SetCurrentIndex(1);
                 weaponsSlots[1] = null;
                 currentWeaponIndex = 1;
             }
-           
+           SetCurrentIndex(1);
+           CurrentWeaponImg[1].sprite = ImageOfWeapons[2];
             currentWeaponIndex=1;
                 weaponsSlots[1] = null;
+
             weaponsSlots[1] =weapon;
             weaponsSlots[1].SetActive(true);
             weaponIndex = i;
@@ -189,11 +230,13 @@ public class CurrentWeapons : MonoBehaviour
              else if(pickup=="crowbar"){
                  if(currentWeaponIndex==2){
                 weaponsSlots[2].SetActive(false);
-                
+                CurrentWeaponImg[2].sprite = ImageOfWeapons[6];
+                SetCurrentIndex(2);
                 weaponsSlots[2] = null;
                 currentWeaponIndex = 2;
             }
-           
+            CurrentWeaponImg[2].sprite = ImageOfWeapons[6];
+           SetCurrentIndex(2);
             currentWeaponIndex=2;
                 weaponsSlots[2] = null;
             weaponsSlots[2] =weapon;
@@ -206,32 +249,22 @@ public class CurrentWeapons : MonoBehaviour
               else if(pickup=="Knife"){
                  if(currentWeaponIndex==2){
                 weaponsSlots[2].SetActive(false);
-                
+                CurrentWeaponImg[2].sprite = ImageOfWeapons[7];
+                SetCurrentIndex(2);
                 weaponsSlots[2] = null;
                 currentWeaponIndex = 2;
             }
-           
+           SetCurrentIndex(2);
             currentWeaponIndex=2;
                 weaponsSlots[2] = null;
+                CurrentWeaponImg[2].sprite = ImageOfWeapons[7];
             weaponsSlots[2] =weapon;
             weaponsSlots[2].SetActive(true);
             weaponIndex = i;
              weaponsSlots[2] = Weapons[7];
             SetCurrentWeapon(2);
-            
              }
             }
         }
-  
-
-    }
-    
-    
+    } 
 }
-
-
-    
-
-    
-
-
