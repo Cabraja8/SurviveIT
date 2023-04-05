@@ -43,14 +43,7 @@ public class Weapon : MonoBehaviour
 
     public bool Reloading= false;
 
-    
-
-    public int GetCurrentAmmo(){
-        return Ammo;
-    }
-
-
-
+  
 
 
     // Start is called before the first frame update
@@ -62,14 +55,18 @@ public class Weapon : MonoBehaviour
         Fire2.enabled = false;
     }
 
+    public void UpdateAmmo(){
+
+    FindObjectOfType<CurrentWeapons>().UpdateDisplay(Ammo);
+    }
+
     // Update is called once per frame
     void Update()
     {
         GetAmmo();
         GetCurrentWeapon();
         WeaponControl();
-
-       
+       UpdateAmmo();
     
     if(Ammo >0){
         if (Input.GetMouseButtonDown(0)){
@@ -106,21 +103,21 @@ public class Weapon : MonoBehaviour
             Debug.Log("ammo full");
         }
         if(gameObject.tag == "Assault Rifle"){
-        if(Ammo != MaxAmmo){
+        if(Ammo != MaxAmmo && bullets !=0){
         Reloading = true;
         audiosource.PlayOneShot(ReloadSound);
         Invoke("ReloadGun",1.5f);
         }
         }
         else if(gameObject.tag == "Shotgun") {
-        if(Ammo != MaxAmmo){
+        if(Ammo != MaxAmmo && shells !=0){
         Reloading = true;
         audiosource.PlayOneShot(ReloadSound);
         
         Invoke("ReloadShotgun",2.0f);
             }
         }else if(gameObject.tag =="HandGun"){
-        if(Ammo != MaxAmmo){
+        if(Ammo != MaxAmmo && HandgunBullets !=0){
         Reloading = true;
         audiosource.PlayOneShot(ReloadSound);
         
@@ -168,111 +165,34 @@ public class Weapon : MonoBehaviour
 
         Reloading = false;
       
-        if(shells >9 ){
-        int s;
-        int max=MaxAmmo;
-        s= max-Ammo;
-        Ammo = MaxAmmo;
-        shells = shells-s;
-        FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
-        FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-        }
-        else if (shells <10){
-            if(shells + Ammo == MaxAmmo){
-                Ammo = MaxAmmo;
-                shells = 0;
-                FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
-                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }
-            else{
-                Ammo = shells + Ammo;
-                shells = 0;
-                FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
-                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }
-        }
-        else if(shells == MaxAmmo  ){
-            Ammo =MaxAmmo;
-            shells = 0;
-            FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
-            FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }else{
-            Debug.Log("No Ammo Left");
-        }
+       int reloadAmount=MaxAmmo - Ammo;
+        reloadAmount = (shells - reloadAmount)>= 0 ? reloadAmount : shells;
+        Ammo += reloadAmount;
+        shells -=reloadAmount;
+         FindObjectOfType<WeaponAmmoDisplay>().DecreaseShells(shells);
+         FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
     }
     void ReloadGun(){
-        
         Reloading = false;
-        if(bullets >9 ){
-        int s;
-        int max=MaxAmmo;
-        s= max-Ammo;
-        Ammo = MaxAmmo;
-        bullets = bullets-s;
-        FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
-        FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-        }
-        else if (bullets <10){
-            if(bullets + Ammo == MaxAmmo){
-                Ammo = MaxAmmo;
-                bullets = 0;
-                FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
-                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }
-            else{
-                Ammo = bullets + Ammo;
-                bullets = 0;
-                FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
-                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }
-        }
-        else if(bullets == MaxAmmo  ){
-            Ammo =MaxAmmo;
-            bullets = 0;
-            FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
-            FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }else{
-            Debug.Log("No Ammo Left");
-        }
-
+        int reloadAmount=MaxAmmo - Ammo;
+        reloadAmount = (bullets - reloadAmount)>= 0 ? reloadAmount : bullets;
+        Ammo += reloadAmount;
+        bullets -=reloadAmount;
+         FindObjectOfType<WeaponAmmoDisplay>().DecreaseBullets(bullets);
+         FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
     }
 
     void ReloadHandgun(){
 
 
         Reloading = false;
-         if(HandgunBullets >9 ){
-        int s;
-        int max=MaxAmmo;
-        s= max-Ammo;
-        Ammo = MaxAmmo;
-        HandgunBullets = HandgunBullets-s;
-        FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
-        FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-        }
-        else if (HandgunBullets <10){
-            if(HandgunBullets + Ammo == MaxAmmo){
-                Ammo = MaxAmmo;
-                HandgunBullets = 0;
-                FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
-                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }
-            else{
-                Ammo = HandgunBullets + Ammo;
-                HandgunBullets = 0;
-                FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
-                FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }
-        }
-        else if(HandgunBullets == MaxAmmo  ){
-            Ammo =MaxAmmo;
-            HandgunBullets = 0;
-            FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
-           FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
-            }else{
-            Debug.Log("No Ammo Left");
-        }
-
+      
+        int reloadAmount=MaxAmmo - Ammo;
+        reloadAmount = (HandgunBullets - reloadAmount)>= 0 ? reloadAmount : HandgunBullets;
+        Ammo += reloadAmount;
+        HandgunBullets -=reloadAmount;
+         FindObjectOfType<WeaponAmmoDisplay>().DecreaseHandgunBullets(HandgunBullets);
+         FindObjectOfType<WeaponAmmoDisplay>().UpdateDisplay();
 
     }
 

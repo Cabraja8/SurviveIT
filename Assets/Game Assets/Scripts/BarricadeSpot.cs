@@ -17,6 +17,9 @@ public class BarricadeSpot : MonoBehaviour
     public GameObject EastBarricade;
     public GameObject SouthBarricade;
 
+    public GameObject eastSign;
+    public GameObject westSign;
+
    
 
     public string DirectionName;
@@ -54,6 +57,8 @@ public class BarricadeSpot : MonoBehaviour
      WestBarricade.SetActive(false);
      EastBarricade.SetActive(false);
      SouthBarricade.SetActive(false);
+     westSign.SetActive(true);
+     eastSign.SetActive(true);
      
    }
 
@@ -157,11 +162,13 @@ public class BarricadeSpot : MonoBehaviour
             
         }
          if(DirectionName == "WestSpot" && !IsBuiltWest){
+            westSign.SetActive(false);
             IsBuiltWest = true;
             WestBarricade.SetActive(true);
             
         }
          if(DirectionName == "EastSpot" && !IsBuiltEast){
+            eastSign.SetActive(false);
             IsBuiltEast = true;
             EastBarricade.SetActive(true);
             
@@ -190,12 +197,14 @@ public class BarricadeSpot : MonoBehaviour
         
     }
      if(barricadeName == "EastBarricade" ){
+        eastSign.SetActive(true);
         IsBuiltEast = false;
         EastBarricade.SetActive(false);
         
         
     }
     if(barricadeName == "WestBarricade" ){
+        westSign.SetActive(true);
         IsBuiltWest = false;
         WestBarricade.SetActive(false);
        

@@ -5,7 +5,7 @@ using TMPro;
 
 public class WeaponPickup : MonoBehaviour
 {
-    public TMP_Text EquipSign;
+    
     public TMP_Text AlreadyEquiped;
 
     
@@ -25,7 +25,7 @@ public class WeaponPickup : MonoBehaviour
     private void Start() {
         player = FindObjectOfType<Player>().transform;
         currentweapons = FindObjectOfType<CurrentWeapons>().weaponsSlots;
-        EquipSign.enabled =false;
+       
         AlreadyEquiped.enabled=false;
 
          

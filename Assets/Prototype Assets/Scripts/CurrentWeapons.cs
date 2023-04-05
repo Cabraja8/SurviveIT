@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CurrentWeapons : MonoBehaviour
 {
@@ -15,9 +16,31 @@ public class CurrentWeapons : MonoBehaviour
     public Image[] weaponimgIndex;
     public Image[] CurrentWeaponImg;
     public Sprite[] ImageOfWeapons;
+    public TMP_Text[] AmmoTypeShow;
 
     public GameObject[] Weapons;
     public int currentWeaponIndex = 1;
+
+
+
+
+    public void UpdateDisplay(int Ammo){
+          for (int i = 0; i < AmmoTypeShow.Length; i++)
+        {   
+            if(i==2){
+                DisableWepDisplay();
+            }else{
+
+            if (i == currentWeaponIndex)
+            {   
+                 if(weaponimgIndex[i] != null){
+                AmmoTypeShow[i].text=Ammo.ToString();
+                 }
+            }
+          
+            }
+        }
+    }
 
     private void Start()
     {       
@@ -29,8 +52,10 @@ public class CurrentWeapons : MonoBehaviour
         }
         }
         SetCurrentIndex(1);
+        SetCurrentText(1);
       
     }
+    
 
      private void Update()
     {
@@ -46,6 +71,17 @@ public class CurrentWeapons : MonoBehaviour
             }
         }
         }
+
+        if(  FindObjectOfType<MeleeWeapon>()){
+
+        
+           DisableWepDisplay();
+        }
+        else{
+            SetCurrentText(currentWeaponIndex);
+            SetCurrentIndex(currentWeaponIndex);
+        }
+        
     }
 
     public void SetCurrentIndex(int weaponIndex){
@@ -65,6 +101,35 @@ public class CurrentWeapons : MonoBehaviour
             }
         }
 
+    }
+
+    public void SetCurrentText(int weaponIndex){
+           for (int i = 0; i < AmmoTypeShow.Length; i++)
+        {
+            if (i == weaponIndex)
+            {   
+                 if(AmmoTypeShow[i] != null){
+                AmmoTypeShow[i].enabled=true;
+                 }
+            }
+            else
+            {   
+                 if(AmmoTypeShow[i] != null){
+                AmmoTypeShow[i].enabled=false;
+                 }
+            }
+        }
+    }
+
+    public void DisableWepDisplay(){
+              for (int i = 0; i < AmmoTypeShow.Length; i++)
+        {
+           
+                 if(AmmoTypeShow[i] != null){
+                AmmoTypeShow[i].enabled=false;
+                 
+            }
+        }
     }
 
     public void SetCurrentWeapon(int weaponIndex)

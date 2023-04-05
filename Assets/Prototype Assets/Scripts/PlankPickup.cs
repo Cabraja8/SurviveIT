@@ -19,7 +19,7 @@ public class PlankPickup : MonoBehaviour
 
 
         if( FindObjectOfType<BuildBarricade>().planks ==3){
-            Debug.Log("Inventory full"); // Dodat UI za prikaz da je invetory full
+            Debug.Log("Inventory full"); 
             planksfull.enabled = true;
             Invoke("disabletext",1.5f);
         }else{

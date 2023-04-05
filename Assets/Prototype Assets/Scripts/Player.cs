@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
 
     public AudioClip pickupsound;
 
-  
 
    public HealthBar healthBar;
 
@@ -43,7 +42,10 @@ public class Player : MonoBehaviour
             
         }
 
+      
+
     }
+    
 
     private void FixedUpdate() {
         rb.MovePosition(rb.position + MoveAmount * Time.fixedDeltaTime);
@@ -69,10 +71,10 @@ public class Player : MonoBehaviour
     
     public void RecoverHealth(int healthAmount){
         health = health + healthAmount;
-        healthBar.SetHealth(health);
         if(health > 100){
             health = 100;
         }
+        healthBar.SetHealth(health);
 
     }
 }

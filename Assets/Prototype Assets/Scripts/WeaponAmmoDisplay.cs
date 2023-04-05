@@ -20,10 +20,7 @@ public class WeaponAmmoDisplay : MonoBehaviour
 
 
 
-    void Awake() {
-        
-        UpdateDisplay();
-    }
+   
      public void UpdateDisplay(){
         displayBullets.text = bullets.ToString();
         displayShotgunShells.text = shells.ToString();
@@ -47,7 +44,13 @@ public class WeaponAmmoDisplay : MonoBehaviour
         shells=shells + shellAmount;
     }
     public void DecreaseShells(int shellAmount){
+        
         shells= shellAmount;
+        if(shells<1){
+            shells=0;
+        }
+
+        
     }
     public void IncreaseHandgunBullets(int BulletAmount){
         HandgunBullets = HandgunBullets + BulletAmount;
@@ -55,6 +58,9 @@ public class WeaponAmmoDisplay : MonoBehaviour
 
      public void DecreaseHandgunBullets(int BulletAmount){
          HandgunBullets = BulletAmount;
+         if(BulletAmount<1){
+            BulletAmount=0;
+        }
      }
 
 
@@ -63,6 +69,9 @@ public class WeaponAmmoDisplay : MonoBehaviour
     }
     public void DecreaseBullets(int BulletAmount){
         bullets= BulletAmount;
+         if(bullets<1){
+            bullets=0;
+        }
     }
 
 }
