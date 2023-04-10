@@ -42,6 +42,7 @@ public class WeaponAmmoDisplay : MonoBehaviour
 
     public void IncreaseShells(int shellAmount){
         shells=shells + shellAmount;
+        UpdateDisplay();
     }
     public void DecreaseShells(int shellAmount){
         
@@ -49,11 +50,13 @@ public class WeaponAmmoDisplay : MonoBehaviour
         if(shells<1){
             shells=0;
         }
+        UpdateDisplay();
 
         
     }
     public void IncreaseHandgunBullets(int BulletAmount){
         HandgunBullets = HandgunBullets + BulletAmount;
+        UpdateDisplay();
      }
 
      public void DecreaseHandgunBullets(int BulletAmount){
@@ -61,17 +64,19 @@ public class WeaponAmmoDisplay : MonoBehaviour
          if(BulletAmount<1){
             BulletAmount=0;
         }
+        UpdateDisplay();
      }
 
 
      public void IncreaseBullets(int BulletAmount){
         bullets=bullets + BulletAmount;
+        UpdateDisplay();
     }
     public void DecreaseBullets(int BulletAmount){
         bullets= BulletAmount;
          if(bullets<1){
             bullets=0;
         }
+    UpdateDisplay();
     }
-
 }

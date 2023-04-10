@@ -20,7 +20,10 @@ public class MeleeMonster : Enemy
    public Slider slider;
 
    private void Start() {
+    base.Start();
     anim = GetComponent<Animator>();
+    audiosource = GetComponent<AudioSource>();
+    
    }
 
    private void Awake() {
@@ -38,7 +41,7 @@ public class MeleeMonster : Enemy
 
          if (distance  <= distanceToPlayer ){
 
-        FindObjectOfType<Enemy>().ChangeTarget();
+        GetComponent<Enemy>().ChangeTarget();
          }
 
 
@@ -80,7 +83,7 @@ public class MeleeMonster : Enemy
     }
 
     public void UpdateDisplay(){
-        slider.value = FindObjectOfType<Enemy>().Health;
+        slider.value = GetComponent<Enemy>().Health;
     }
     
     IEnumerator Attack(){

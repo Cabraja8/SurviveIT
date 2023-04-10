@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     public Animator deathAnim;
 
      public virtual void Start() {
-       Target = GameObject.FindGameObjectWithTag("Zone").transform;
+       Target = FindObjectOfType<Zone>().transform;
+       Player = FindObjectOfType<Player>().transform;
        deathAnim= GetComponent<Animator>();
         
     }
@@ -26,27 +27,32 @@ public class Enemy : MonoBehaviour
    
 
 
-    public void TakeDamage(int damageAmount){
+    public void TakeDamage(int damageAmount, Collider2D enemy){
 
         Health = Health - damageAmount;
 
-        if(name == "Shadow Monster" || name=="Brute Monster"){
-        FindObjectOfType<MeleeMonster>().DamageTaken();
+        if(name == "Shadow Monster(Clone)" || name=="Brute Monster(Clone)"){
+       
+        enemy.GetComponent<MeleeMonster>().DamageTaken();
         }
-        if(name=="Bat Monster"){
-            FindObjectOfType<RangedMonster>().DamageTaken();
+        if(name=="Bat Monster(Clone)"){
+          
+            enemy.GetComponent<RangedMonster>().DamageTaken();
         }
         if(Health <=0){
-             if(name == "Shadow Monster" || name=="Brute Monster"){
-            FindObjectOfType<MeleeMonster>().speed=0;
-            FindObjectOfType<MeleeMonster>().MonsterGrowl();
-            FindObjectOfType<MeleeMonster>().UpdateDisplay();
-            damage = 0;
+             if(name == "Shadow Monster(Clone)" || name=="Brute Monster(Clone)"){
+              
+                enemy.GetComponent<MeleeMonster>().MonsterGrowl();
+                enemy.GetComponent<MeleeMonster>().UpdateDisplay();
+           
+          
+            
             deathAnim.SetBool("death",true);
              }
-              else if(name=="Bat Monster"){
+              else if(name=="Bat Monster(Clone)"){
                 
-                FindObjectOfType<RangedMonster>().Death();
+           
+                enemy.GetComponent<RangedMonster>().Death();
               }
         }
 
@@ -59,7 +65,7 @@ public class Enemy : MonoBehaviour
 
         }
     public void ChangeTarget(){
-        Target =  GameObject.FindGameObjectWithTag("Player").transform;
+        Target = Player;
     }
 
 

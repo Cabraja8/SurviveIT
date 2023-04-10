@@ -80,13 +80,13 @@ public class MeleeWeapon : MonoBehaviour
 
 
          if(enemy.name.Contains("Shadow Monster")){ 
-        enemy.GetComponent<Enemy>().TakeDamage(damage);
+        enemy.GetComponent<Enemy>().TakeDamage(damage,enemy);
          }
          if(enemy.name.Contains("Bat Monster")){ 
-        enemy.GetComponent<Enemy>().TakeDamage(damage);
+        enemy.GetComponent<Enemy>().TakeDamage(damage,enemy);
          }
            if(enemy.name.Contains("Brute Monster")){ 
-        enemy.GetComponent<Enemy>().TakeDamage(damage);
+        enemy.GetComponent<Enemy>().TakeDamage(damage,enemy);
          }
          
         if(enemy.name.Contains("LootBox")){ 

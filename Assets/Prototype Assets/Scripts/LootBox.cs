@@ -6,12 +6,13 @@ public class LootBox : MonoBehaviour
 {
    
     
-    public GameObject Drop;
-    public GameObject spawnPoint;
-
+    
+ 
     public AudioSource audiosource;
 
     public AudioClip BreakSound;
+
+    public GameObject[] Drop;
 
 
     
@@ -23,7 +24,9 @@ public class LootBox : MonoBehaviour
     }
 
     public void DeleteBox(){
-            Instantiate(Drop,spawnPoint.transform.position, spawnPoint.transform.rotation);
+            int randomIndex = Random.Range(0, Drop.Length);
+                GameObject randomObject = Drop[randomIndex];
+                Instantiate(randomObject, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Debug.Log("LootBox");
 

@@ -59,7 +59,7 @@ public class RangedMonster : Enemy
     }
 
    public void UpdateDisplay(){
-        slider.value = FindObjectOfType<Enemy>().Health;
+        slider.value = GetComponent<Enemy>().Health;
     }
     
     public void Death(){
