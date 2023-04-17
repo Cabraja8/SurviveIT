@@ -17,10 +17,10 @@ public class WaveSpawner : MonoBehaviour
 
         public Transform[] spawnPoints;
         public float timeBetweenWaves;
+    public GameOverScreen GameOverScreen;
 
-
-    private Wave currentWave;
-    private int currentWaveIndex;
+    public Wave currentWave;
+    public int currentWaveIndex;
 
     public Transform player;
 
@@ -54,6 +54,10 @@ public class WaveSpawner : MonoBehaviour
 
     }
     private void Update() {
+
+        int num = currentWaveIndex+1;
+        FindObjectOfType<WaveCounterDisplay>().UpdateDisplay(num.ToString());
+
         if(finishedSpawning==true && GameObject.FindGameObjectsWithTag("Enemy").Length==0 ){
                 finishedSpawning=false;
                 if(currentWaveIndex +1 < waves.Length){
@@ -61,6 +65,7 @@ public class WaveSpawner : MonoBehaviour
                     StartCoroutine(StartNextWave(currentWaveIndex));
                 }else{
                     Debug.Log("GAME FINISHED!!!");
+                    GameOverScreen.Setup();
                 }
 
         }

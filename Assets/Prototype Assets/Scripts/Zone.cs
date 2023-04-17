@@ -7,6 +7,7 @@ public class Zone : MonoBehaviour
 {
     public int health;
     public Slider slider;
+    public GameOverScreen GameOverScreen;
 
    public void TakeDamage(int damageAmount){
         
@@ -14,13 +15,13 @@ public class Zone : MonoBehaviour
         SetHealth(health);
         if(health <=0){
             SetHealth(health);
-            Destroy(this.gameObject);
             GameOver();
         }
     }
 
        public void GameOver(){
-            Debug.Log("Game Over");
+            Debug.Log("Game Over you LOST");
+            GameOverScreen.Setup();
         }
 
         public void SetHealth(int health){
