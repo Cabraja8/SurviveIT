@@ -18,6 +18,7 @@ TagManager:
   - Shadow Monster
   - Brute Monster
   - Bat Monster
+  - AlreadyEquiped
   layers:
   - Default
   - TransparentFX

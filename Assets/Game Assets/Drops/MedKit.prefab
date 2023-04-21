@@ -44,7 +44,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.012604117, y: 0.08029997}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 40
-  healthdisplay: {fileID: 0}
+  healthdisplay: {fileID: 3334026234300444677, guid: ab23795791537e84398ae9f3d92ecee9, type: 3}
 --- !u!1 &7363155643195252990
 GameObject:
   m_ObjectHideFlags: 0

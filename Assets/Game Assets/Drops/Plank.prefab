@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6ee86cf3c491b46a691757da9d0adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planksfull: {fileID: 0}
+  planksfull: {fileID: 513354655953806115, guid: 42ce959ba6cf51440adcb1cf9146346c, type: 3}
 --- !u!61 &8496536667340920126
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2824544934193247639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.14, y: 3.4982738, z: 0.0060163816}
+  m_LocalPosition: {x: -16.14, y: 3.4982738, z: 60}
   m_LocalScale: {x: 0.6375, y: 0.7125, z: 1}
   m_Children:
   - {fileID: 7561525732794840009}
@@ -97,12 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc42c80ce3e019468fc765c3547c281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlreadyEquiped: {fileID: 0}
+  AlreadyEquiped: {fileID: 8020617685949806513, guid: 2669e84584ca0da4193259c1c000a38f, type: 3}
   WeaponToEquip: {fileID: 5102574293998710012, guid: 3027284e23f8cf94a8f33470d6d12f5b, type: 3}
   player: {fileID: 0}
   isEquiped: 0
   inRange: 0
   currentweapons: []
+  DestoryDelay: 10
 --- !u!82 &4605904401260544066
 AudioSource:
   m_ObjectHideFlags: 0

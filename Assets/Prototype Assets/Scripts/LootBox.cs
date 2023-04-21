@@ -15,6 +15,9 @@ public class LootBox : MonoBehaviour
     public GameObject[] Drop;
 
 
+    private void Start() {
+        audiosource = FindObjectOfType<Player>().GetComponent<AudioSource>();
+    }
     
 
     public void DestroyBox(){
@@ -27,9 +30,25 @@ public class LootBox : MonoBehaviour
             int randomIndex = Random.Range(0, Drop.Length);
                 GameObject randomObject = Drop[randomIndex];
                 Instantiate(randomObject, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+
+            GameObject remove = gameObject;
+            Destroy(remove);
             Debug.Log("LootBox");
 
+    }
+    private LootBoxSpawner.LootBoxSpawnPoint spawnPoint;
+
+    public void SetSpawnPoint(LootBoxSpawner.LootBoxSpawnPoint point)
+    {
+        spawnPoint = point;
+    }
+
+    private void OnDestroy()
+    {
+        if (spawnPoint != null)
+        {
+            spawnPoint.isOccupied = false;
+        }
     }
 
  

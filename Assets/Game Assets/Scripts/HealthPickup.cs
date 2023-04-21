@@ -10,9 +10,21 @@ public class HealthPickup : MonoBehaviour
     public int healthAmount;
 
     public TMP_Text healthdisplay;
+    public int DestoryDelay=10;
 
     private void Start() {
+        healthdisplay = FindObjectOfType<DisableText>().already100;
         healthdisplay.enabled = false;
+        
+      StartCoroutine(DestoryPickup());
+    }
+    
+
+    IEnumerator DestoryPickup(){
+        yield return new WaitForSeconds(DestoryDelay);
+        GameObject ObjToRemove=gameObject;
+
+        Destroy(ObjToRemove);
     }
     
 

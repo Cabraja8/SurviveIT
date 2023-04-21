@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042656092202011403}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00999999, y: 0.089999914, z: 59.989357}
+  m_LocalPosition: {x: -0.00999999, y: 0.089999914, z: 60}
   m_LocalScale: {x: 0.6375, y: 0.6375, z: 1}
   m_Children: []
   m_Father: {fileID: 2042656093336549113}
@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042656093336549115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.98, y: 4.21, z: -59.989357}
+  m_LocalPosition: {x: 2.98, y: 4.21, z: 60}
   m_LocalScale: {x: 0.6453125, y: 0.6290625, z: 1}
   m_Children:
   - {fileID: 2042656092202011400}
@@ -159,8 +159,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73128f439ec7a284c812a9bcb3377504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 2042656093336549115}
-  spawnPoint: {fileID: 2042656092141160959}
+  audiosource: {fileID: 0}
+  BreakSound: {fileID: 8300000, guid: 4c8680e95f9724541934015f5ef7b0f3, type: 3}
+  Drop:
+  - {fileID: 7662103426306005486, guid: 304ceb97515c4a047ace09f4a805b129, type: 3}
+  - {fileID: 7144490323412839492, guid: 82533b457480e1b409511a12c41e134c, type: 3}
+  - {fileID: 9170438044161125967, guid: 1f0150a383a94ae47acee423ab41cee1, type: 3}
+  - {fileID: 8496536667340920114, guid: f4197cc48ad5d4649abcc7a8b276b756, type: 3}
+  - {fileID: 4889780934059419398, guid: b4c5975d03a8c1b4d8d97766922b65ab, type: 3}
+  - {fileID: 9052712346996670572, guid: 180d8a507eed8ca468244f1c850adfb2, type: 3}
+  - {fileID: 9188805494942128004, guid: a568115e110aa854ba470621418cb90e, type: 3}
+  - {fileID: 2824544934193247639, guid: e61d9a451f652da4289da68e67d22f46, type: 3}
+  - {fileID: 1859309189716154530, guid: 2d8e27cad3679fe4aa81650aab5715aa, type: 3}
+  - {fileID: 6520560424778099344, guid: 93b9121cdbef4154e9d53ab07454637f, type: 3}
+  - {fileID: 483584026596872138, guid: 8552b35dfa1851641b548aadcf3537d9, type: 3}
+  - {fileID: 8901132526966704581, guid: 1e446ceb8e694e843a65c59c380c53ef, type: 3}
+  - {fileID: 1514545081933758981, guid: 13112056646a91949bfe13b154b54da8, type: 3}
 --- !u!50 &2042656093336549118
 Rigidbody2D:
   serializedVersion: 4

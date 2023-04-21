@@ -9,10 +9,22 @@ public class PlankPickup : MonoBehaviour
 {   
     int plankAmount = 1;
     public TMP_Text planksfull;
+    public int DestoryDelay=10;
 
     private void Start() {
+        planksfull = FindObjectOfType<DisableText>().already3;
         planksfull.enabled = false;
+    StartCoroutine(DestoryPickup());
     }
+    
+
+    IEnumerator DestoryPickup(){
+        yield return new WaitForSeconds(DestoryDelay);
+        GameObject ObjToRemove=gameObject;
+
+        Destroy(ObjToRemove);
+    }
+
    
 
     private void OnTriggerEnter2D(Collider2D other) {

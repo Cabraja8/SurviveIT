@@ -122,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9052712346996670572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7603779, y: 2.758646, z: -75.75602}
+  m_LocalPosition: {x: -1.7603779, y: 2.758646, z: 60}
   m_LocalScale: {x: 0.475, y: 0.53712887, z: 1}
   m_Children:
   - {fileID: 5483481504908024633}
@@ -141,12 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc42c80ce3e019468fc765c3547c281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlreadyEquiped: {fileID: 0}
+  AlreadyEquiped: {fileID: 8020617685949806513, guid: 2669e84584ca0da4193259c1c000a38f, type: 3}
   WeaponToEquip: {fileID: 9062708111941300995, guid: d742d086baafd954e9eb1ac02528ec8e, type: 3}
   player: {fileID: 0}
   isEquiped: 0
   inRange: 0
   currentweapons: []
+  DestoryDelay: 10
 --- !u!212 &7058824815850195270
 SpriteRenderer:
   m_ObjectHideFlags: 0
