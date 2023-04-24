@@ -65,16 +65,19 @@ public class Weapon : MonoBehaviour
     {
         GetAmmo();
         GetCurrentWeapon();
+        if(!PauseMenu.GameIsPaused){
+
         WeaponControl();
-       UpdateAmmo();
+        }
+        UpdateAmmo();
     
     if(Ammo >0){
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) && !PauseMenu.GameIsPaused){
             Fire1.enabled = false;
             Fire2.enabled = false;
         }
 
-        if(Input.GetMouseButton(0)){
+        if(Input.GetMouseButton(0) && !PauseMenu.GameIsPaused){
             if(Time.time >= shotTime){
                 if(!Reloading){
                 Shoot();
@@ -96,7 +99,7 @@ public class Weapon : MonoBehaviour
         reloadSign.enabled=false;
     }
 
-    if(Input.GetKeyDown(KeyCode.R)){
+    if(Input.GetKeyDown(KeyCode.R) && !PauseMenu.GameIsPaused){
 
         
         if(Ammo == MaxAmmo){

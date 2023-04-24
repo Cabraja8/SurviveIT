@@ -32,7 +32,19 @@ public class MeleeWeapon : MonoBehaviour
         }
  
     void Update()
-    {
+    {   
+        if(!PauseMenu.GameIsPaused){
+            WeaponControl();
+        }
+
+    if(Input.GetMouseButton(0) && !PauseMenu.GameIsPaused){
+        if(Time.time >= AttackTime){
+        Attack();
+        }
+    }
+    }
+
+    void WeaponControl(){
          Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
         float angle= Mathf.Atan2(direction.y,direction.x)* Mathf.Rad2Deg;
@@ -49,11 +61,7 @@ public class MeleeWeapon : MonoBehaviour
            
 
         }
-    if(Input.GetMouseButton(0)){
-        if(Time.time >= AttackTime){
-        Attack();
-        }
-    }
+
     }
 
     void Attack(){
