@@ -35,8 +35,6 @@ public class MeleeMonster : Enemy
     void Update()
     {   
 
-
-
         distance = Vector2.Distance(Player.position,transform.position);
        
        

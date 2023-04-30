@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4044021024548547691}
   - component: {fileID: 266526088807576488}
   - component: {fileID: 1124958048379575502}
-  - component: {fileID: 7559121717104535841}
+  - component: {fileID: 7951895353700429362}
   m_Layer: 0
   m_Name: ak47_bullet
   m_TagString: Untagged
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26, y: 0.78}
   m_EdgeRadius: 0
---- !u!114 &7559121717104535841
+--- !u!114 &7951895353700429362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8646215538725887769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7818a226da58945a613f9db84a8e9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 548a1a14b24f7e84fab7746264169438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  lifeTime: 3
+  speed: 30
+  lifeTime: 2
   explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
-  damage: 42
+  damage: 36

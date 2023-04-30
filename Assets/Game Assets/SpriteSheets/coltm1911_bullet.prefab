@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1001514865119735123}
   - component: {fileID: 156687162767098576}
-  - component: {fileID: 5188236643015539547}
   - component: {fileID: 7098179090095279236}
+  - component: {fileID: 4796534937841021410}
   m_Layer: 0
   m_Name: coltm1911_bullet
   m_TagString: Untagged
@@ -84,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5188236643015539547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214267095522474906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7818a226da58945a613f9db84a8e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 40
-  lifeTime: 3
-  explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
-  damage: 46
 --- !u!61 &7098179090095279236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,3 +110,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23, y: 0.46}
   m_EdgeRadius: 0
+--- !u!114 &4796534937841021410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214267095522474906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548a1a14b24f7e84fab7746264169438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  lifeTime: 3
+  explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
+  damage: 54

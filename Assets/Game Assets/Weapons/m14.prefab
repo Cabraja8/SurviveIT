@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1043831132832220499}
   - component: {fileID: 1043831132832220497}
-  - component: {fileID: 1043831132832220498}
   m_Layer: 6
   m_Name: m14
   m_TagString: Assault Rifle
@@ -87,37 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1043831132832220498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043831132832220500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729dd63da0f008c42ac3f1a96cee2eff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 3100734589291519461, guid: 044fc5d2ad1343d45a55a7f5b40134ba, type: 3}
-  weapon: {fileID: 0}
-  shotPoint: {fileID: 1043831133092970126}
-  shotPoint2: {fileID: 1043831134385639992}
-  shotPointHelper: {fileID: 1043831133092970126}
-  rend: {fileID: 0}
-  Fire1: {fileID: 1043831134359320590}
-  Fire2: {fileID: 1043831134338185404}
-  Ammo: 10
-  bullets: 50
-  shells: 50
-  HandgunBullets: 0
-  MaxAmmo: 0
-  timeBetweenShots: 0.2
-  audiosource: {fileID: 0}
-  ReloadSound: {fileID: 0}
-  ShotSound: {fileID: 0}
-  reloadSign: {fileID: 0}
-  Reloading: 0
 --- !u!1 &1043831133092970127
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
    public HealthBar healthBar;
 
 
+   private void Awake() {
+    Time.timeScale =1f;
+   }
+
+
 
 
      void Start() {

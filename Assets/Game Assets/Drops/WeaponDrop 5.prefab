@@ -105,9 +105,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4669337096120473430}
   - component: {fileID: 6520560424778099346}
-  - component: {fileID: 6520560424778099347}
   - component: {fileID: 4576705444546570383}
   - component: {fileID: 4773583911816569988}
+  - component: {fileID: 5755233280457618216}
   m_Layer: 0
   m_Name: WeaponDrop 5
   m_TagString: Untagged
@@ -186,25 +186,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6520560424778099347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6520560424778099344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc42c80ce3e019468fc765c3547c281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AlreadyEquiped: {fileID: 8020617685949806513, guid: 2669e84584ca0da4193259c1c000a38f, type: 3}
-  WeaponToEquip: {fileID: 1043831132832220500, guid: 51cca817d47cf934db4482eb05c6748a, type: 3}
-  player: {fileID: 0}
-  isEquiped: 0
-  inRange: 0
-  currentweapons: []
-  DestoryDelay: 10
 --- !u!82 &4576705444546570383
 AudioSource:
   m_ObjectHideFlags: 0
@@ -309,3 +290,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6520560424778099344}
   m_CullTransparentMesh: 1
+--- !u!114 &5755233280457618216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520560424778099344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14943ff54b926264e8e0061e669757fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlreadyEquiped: {fileID: 0}
+  WeaponToEquip: {fileID: 1043831132832220500, guid: 51cca817d47cf934db4482eb05c6748a, type: 3}
+  player: {fileID: 0}
+  isEquiped: 0
+  inRange: 0
+  currentweapons: []
+  DestoryDelay: 10

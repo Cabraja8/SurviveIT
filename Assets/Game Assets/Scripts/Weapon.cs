@@ -43,7 +43,9 @@ public class Weapon : MonoBehaviour
 
     public bool Reloading= false;
 
-  
+    private void Awake() {
+    Time.timeScale =1f;
+   }
 
 
     // Start is called before the first frame update

@@ -30,7 +30,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player"){
-            if(FindObjectOfType<Player>().health==100){
+            if(FindObjectOfType<Player>().health==300){
                 Debug.Log("Your health is full");
                 healthdisplay.enabled = true;
                 Invoke("disabletext",1.5f);

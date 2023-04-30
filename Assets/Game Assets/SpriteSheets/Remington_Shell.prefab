@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4606687587165141259}
   - component: {fileID: 1332312793390132871}
-  - component: {fileID: 8463870745913061277}
   - component: {fileID: 7667695664902301001}
+  - component: {fileID: 3769353674512534068}
   m_Layer: 0
   m_Name: Remington_Shell
   m_TagString: Untagged
@@ -84,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8463870745913061277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667219951167414692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7818a226da58945a613f9db84a8e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 50
-  lifeTime: 0.1
-  explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
-  damage: 51
 --- !u!61 &7667695664902301001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,3 +110,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.47}
   m_EdgeRadius: 0
+--- !u!114 &3769353674512534068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667219951167414692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548a1a14b24f7e84fab7746264169438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  lifeTime: 1
+  explosion: {fileID: 4699660082649268843, guid: b4d80476b996b374bb355444f678323b, type: 3}
+  damage: 60

@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
 
         if(name == "Shadow Monster(Clone)" || name=="Brute Monster(Clone)"){
        
-        enemy.GetComponent<MeleeMonster>().DamageTaken();
          if(Health <=0){
             enemy.GetComponent<MeleeMonster>().MonsterGrowl();
             enemy.GetComponent<MeleeMonster>().UpdateDisplay();
@@ -41,15 +40,16 @@ public class Enemy : MonoBehaviour
             enemy.GetComponent<Enemy>().damage=0;
             deathAnim.SetBool("death",true);
          }
+        enemy.GetComponent<MeleeMonster>().DamageTaken();
         }
         if(name=="Bat Monster(Clone)"){
           
-            enemy.GetComponent<RangedMonster>().DamageTaken();
-
             if(Health<=0){
                  enemy.GetComponent<RangedMonster>().Death();
                 enemy.GetComponent<Enemy>().speed=0;
             }
+            enemy.GetComponent<RangedMonster>().DamageTaken();
+
             
         }
        

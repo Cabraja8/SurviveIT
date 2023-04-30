@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2899610907380950978}
   - component: {fileID: 2899610907380950977}
-  - component: {fileID: 2899610907380950976}
+  - component: {fileID: 3652285494043348206}
   m_Layer: 6
   m_Name: ak47
   m_TagString: Assault Rifle
@@ -311,7 +311,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2899610907380950976
+--- !u!114 &3652285494043348206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,23 +320,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2899610907380950983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729dd63da0f008c42ac3f1a96cee2eff, type: 3}
+  m_Script: {fileID: 11500000, guid: 625307a69534da548ae470b6cca0bfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8646215538725887769, guid: 75cfd6ec186524b44bbf2f4c72622308, type: 3}
+  projectile: {fileID: 0}
   weapon: {fileID: 0}
-  shotPoint: {fileID: 2899610906779718302}
-  shotPoint2: {fileID: 2899610906094660805}
-  shotPointHelper: {fileID: 2899610906779718302}
+  shotPoint: {fileID: 0}
+  shotPoint2: {fileID: 0}
+  shotPointHelper: {fileID: 0}
   rend: {fileID: 0}
-  Fire1: {fileID: 2899610907344342626}
-  Fire2: {fileID: 2899610906789920831}
-  Ammo: 15
-  bullets: 50
-  shells: 50
+  Fire1: {fileID: 0}
+  Fire2: {fileID: 0}
+  Ammo: 0
+  bullets: 0
+  shells: 0
   HandgunBullets: 0
   MaxAmmo: 0
-  timeBetweenShots: 0.3
+  timeBetweenShots: 0
   audiosource: {fileID: 0}
   ReloadSound: {fileID: 0}
   ShotSound: {fileID: 0}

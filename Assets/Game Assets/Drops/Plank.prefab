@@ -107,8 +107,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8496536667340920113}
   - component: {fileID: 8496536667340920112}
-  - component: {fileID: 8496536667340920115}
   - component: {fileID: 8496536667340920126}
+  - component: {fileID: 565596641997905059}
   m_Layer: 0
   m_Name: Plank
   m_TagString: Untagged
@@ -182,19 +182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8496536667340920115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496536667340920114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6ee86cf3c491b46a691757da9d0adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planksfull: {fileID: 513354655953806115, guid: 42ce959ba6cf51440adcb1cf9146346c, type: 3}
 --- !u!61 &8496536667340920126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -221,3 +208,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6460104, y: 2.93}
   m_EdgeRadius: 0
+--- !u!114 &565596641997905059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496536667340920114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce163f0f387d094695aaaf26c4c0ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planksfull: {fileID: 0}
+  DestoryDelay: 10

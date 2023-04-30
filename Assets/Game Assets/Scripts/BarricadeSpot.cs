@@ -96,7 +96,7 @@ public class BarricadeSpot : MonoBehaviour
        
            
             if(Input.GetKeyDown(KeyCode.F) && InRange && Hovering && DirectionName != "" ){
-                if(FindObjectOfType<BuildBarricade>().planks==3){
+                if(FindObjectOfType<BuildBarricade>().planks>=1){
                      if(DirectionName == "NorthSpot" && IsBuiltNorth){
                 
                      Debug.Log("you already built this barricade");
@@ -109,42 +109,19 @@ public class BarricadeSpot : MonoBehaviour
                         }
                         else{
 
-                    FindObjectOfType<BuildBarricade>().planks=1;
+                    FindObjectOfType<BuildBarricade>().planks=FindObjectOfType<BuildBarricade>().planks-1;
                     FindObjectOfType<BuildBarricade>().UpdateDisplay();
                     Invoke("BuildBarricade",0.5f);
                         }
                 }
-                if(FindObjectOfType<BuildBarricade>().planks==2){
-
-                     if(DirectionName == "NorthSpot" && IsBuiltNorth && DirectionName != "" ){
                 
-                     Debug.Log("you already built this barricade");
-                        }else if(DirectionName == "WestSpot" && IsBuiltWest){
-                            Debug.Log("you already built this barricade");
-                        }else if(DirectionName == "EastSpot" && IsBuiltEast){
-                            Debug.Log("you already built this barricade");
-                        }else if(DirectionName == "SouthSpot" && IsBuiltSouth){
-                            Debug.Log("you already built this barricade");
-                        }
-                        else{
-                   FindObjectOfType<BuildBarricade>().planks=0;
-                   FindObjectOfType<BuildBarricade>().UpdateDisplay();
-                  Invoke("BuildBarricade",0.5f);
-                        }
-                    
-                }
-                 if(FindObjectOfType<BuildBarricade>().planks==1){
+                 if(FindObjectOfType<BuildBarricade>().planks<1){
                   
-                    FindObjectOfType<BuildBarricade>().planks=1;
+                    
                     Debug.Log("you need more planks");
                     
                 }
-                 if(FindObjectOfType<BuildBarricade>().planks==0){
-                   
-                    FindObjectOfType<BuildBarricade>().planks=0;
-                    Debug.Log("there's no more planks");
-                    
-                }
+                
             }
         
         
