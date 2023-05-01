@@ -22,7 +22,7 @@ public class GameOverScreen : MonoBehaviour
 
  public void ReturnToMenu(){
     Time.timeScale=1;
-    SceneManager.LoadScene(1);
+    SceneManager.LoadScene(0);
  }
 
 
