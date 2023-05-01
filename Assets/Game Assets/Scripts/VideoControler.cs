@@ -31,6 +31,7 @@ public class VideoControler : MonoBehaviour
         video.SetActive(false);
         hasPlayed = true;
         EnableAllObjects();
+        FindObjectOfType<PauseMenu>().Resume();
     }
 
     public void EnableAllObjects()

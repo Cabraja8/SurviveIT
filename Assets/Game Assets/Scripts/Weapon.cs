@@ -51,6 +51,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        Time.timeScale =1f;
         reloadSign.enabled=false;
         rend = GetComponent<SpriteRenderer>();
         Fire1.enabled = false;
