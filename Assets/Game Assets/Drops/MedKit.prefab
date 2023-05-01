@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7b38f6b2ca8074d8a543a916fa95a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 300
+  healthAmount: 500
   healthdisplay: {fileID: 0}
   DestoryDelay: 10
 --- !u!1 &7363155643195252990

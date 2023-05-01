@@ -7,10 +7,10 @@ using TMPro;
 public class HealthPickup : MonoBehaviour
 {
 
-    public int healthAmount;
+    public int healthAmount=500;
 
     public TMP_Text healthdisplay;
-    public int DestoryDelay=10;
+    public int DestroyDelay=10;
 
     private void Start() {
         healthdisplay = FindObjectOfType<DisableText>().already100;
@@ -21,7 +21,7 @@ public class HealthPickup : MonoBehaviour
     
 
     IEnumerator DestoryPickup(){
-        yield return new WaitForSeconds(DestoryDelay);
+        yield return new WaitForSeconds(DestroyDelay);
         GameObject ObjToRemove=gameObject;
 
         Destroy(ObjToRemove);
@@ -30,7 +30,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player"){
-            if(FindObjectOfType<Player>().health==300){
+            if(FindObjectOfType<Player>().health==500){
                 Debug.Log("Your health is full");
                 healthdisplay.enabled = true;
                 Invoke("disabletext",1.5f);

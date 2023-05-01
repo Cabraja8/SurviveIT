@@ -30,7 +30,7 @@ public class PlankPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
 
 
-        if( FindObjectOfType<BuildBarricade>().planks ==3){
+        if( FindObjectOfType<Player>().planks ==3){
             Debug.Log("Inventory full"); 
             planksfull.enabled = true;
             Invoke("disabletext",1.5f);
@@ -39,7 +39,7 @@ public class PlankPickup : MonoBehaviour
         if(other.gameObject.tag=="Player"){
             FindObjectOfType<Player>().PickupItem();
             Debug.Log("planks pickedup");
-            FindObjectOfType<BuildBarricade>().IncreasePlanks(plankAmount);
+            FindObjectOfType<Player>().IncreasePlanks(plankAmount);
             FindObjectOfType<BuildBarricade>().UpdateDisplay();
             Destroy(gameObject);
         }

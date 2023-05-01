@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
    public HealthBar healthBar;
 
+    public float planks=3f;
 
    private void Awake() {
     Time.timeScale =1f;
@@ -32,6 +33,14 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
       
+    }
+    public void IncreasePlanks(float plankAmount){
+        planks = planks + plankAmount;
+        FindObjectOfType<BuildBarricade>().UpdateDisplay();
+
+        if(planks >3f){
+            planks =3f;
+        }
     }
 
 
@@ -76,8 +85,8 @@ public class Player : MonoBehaviour
     
     public void RecoverHealth(int healthAmount){
         health = health + healthAmount;
-        if(health > 100){
-            health = 100;
+        if(health > 500){
+            health = 500;
         }
         healthBar.SetHealth(health);
 

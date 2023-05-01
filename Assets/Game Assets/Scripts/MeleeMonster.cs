@@ -59,18 +59,29 @@ public class MeleeMonster : Enemy
         }
         
     }
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.name== "NorthBarricade" || other.gameObject.name== "WestBarricade" || other.gameObject.name== "EastBarricade" || other.gameObject.name== "SouthBarricade"){
-        Debug.Log(other.gameObject.name);
+      private void OnCollisionEnter2D(Collision2D other)
+    {
        
-       
+        if (other.gameObject.tag=="Barricade")
+        {
+           
         anim.SetTrigger("attack");
-   
-        StartCoroutine(FindObjectOfType<BarricadeSpot>().TakeDamage(other.gameObject.name));
-        
+           
+        StartCoroutine(DestroyTheBarricade(other));
+       
         }
     }
+
+    public IEnumerator DestroyTheBarricade(Collision2D other){
+        yield return new WaitForSeconds(2.0f);
+            other.gameObject.GetComponentInParent<BarricadeSpot>().NotOcupied();
+            other.gameObject.SetActive(false);
+
+    }
+
+
+
+   
 
     public void MonsterGrowl(){
         audiosource.PlayOneShot(Growl);

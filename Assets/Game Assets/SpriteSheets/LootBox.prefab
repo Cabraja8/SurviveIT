@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2042656092141160956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2042656092202011400}
   - component: {fileID: 2042656092202011406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LootBoxSheet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2042656093336549118}
   - component: {fileID: 2042656093336549119}
   - component: {fileID: 7979751977507682280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LootBox
   m_TagString: LootBox
   m_Icon: {fileID: 0}

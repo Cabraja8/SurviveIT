@@ -5,196 +5,97 @@ using UnityEngine.UI;
 using TMPro;
 
 public class BarricadeSpot : MonoBehaviour
-{   
-
-    public bool InRange = false;
-    public Transform player;
-    float distance = Mathf.Infinity;
-    float playerDistance = 4f;
-
-    public GameObject NorthBarricade;
-    public GameObject WestBarricade;
-    public GameObject EastBarricade;
-    public GameObject SouthBarricade;
-
+{
+   
+       public AudioClip BreakSound;
+    public AudioClip BuildSound;
+    public AudioSource audisource;
     public GameObject eastSign;
     public GameObject westSign;
-
-   
-
-    public string DirectionName;
-
-    public bool IsBuiltNorth;
-    public bool IsBuiltWest;
-    public bool IsBuiltEast;
-    public bool IsBuiltSouth;
-
-    public bool Hovering =false;
-
-    public AudioSource audisource;
-
-    public AudioClip BreakSound;
-    public AudioClip BuildSound;
+    public GameObject[] barricades; 
+    public int maxHealth = 100; 
+    public int currentHealth; 
+    public bool isOccupied; 
+    public float plankCost = 1f; 
     
-    void OnMouseEnter() {
+    public float rebuildCooldown = 2f; 
+    private float nextRebuildTime = 0f; 
 
-        if(InRange){
+    private Renderer renderer; 
+    private Color defaultColor; 
 
-        
-        DirectionName = gameObject.name;
-        }
-        if(DirectionName == null){
-            Hovering = false;
-        }else{
-            Hovering=true;
-        }
-        
-   }
-
-   private void Start() {
-   
-    NorthBarricade.SetActive(false);
-     WestBarricade.SetActive(false);
-     EastBarricade.SetActive(false);
-     SouthBarricade.SetActive(false);
-     westSign.SetActive(true);
-     eastSign.SetActive(true);
-     
-   }
-
-   private void Update() {
-
-    InputForBuilding();
-
-    if(!InRange || !Hovering){
-        DirectionName = null;
+    private void Start()
+    {
+        renderer = GetComponentInChildren<Renderer>();
+        defaultColor = renderer.material.color;
+        currentHealth = maxHealth;
     }
 
-   
-
-
-    distance = Vector2.Distance(player.position,transform.position);
-
-    if (distance  <= playerDistance ){
-
-        InRange= true;
-        
+    public void NotOcupied(){
+        this.isOccupied=false;
     }
 
-   if(distance  >= playerDistance ){
+    private void Update()
+    {
+      
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        if (hit.collider != null && hit.collider.gameObject == gameObject)
+        {
+           
+            if (isOccupied || Time.time < nextRebuildTime || FindObjectOfType<Player>().planks < plankCost)
+            {
+                renderer.material.color = Color.red;
+            }
+            else
+            {
+                renderer.material.color = Color.green;
+            }
+
+          
+            if (Input.GetKeyDown(KeyCode.F) && !isOccupied && Time.time >= nextRebuildTime && FindObjectOfType<Player>().planks >= plankCost)
+            {
+                audisource.PlayOneShot(BuildSound);
             
-           InRange=false;
-           
+                foreach (GameObject barricade in barricades)
+                {
+                    if (!barricade.activeSelf)
+                    {
+                        barricade.SetActive(true);
+                        barricade.transform.position = transform.position;
+                        barricade.transform.rotation = transform.rotation;
+                        break;
+                    }
+                }
+
+                
+                isOccupied = true;
+                FindObjectOfType<Player>().planks -= plankCost;
+
+                FindObjectOfType<BuildBarricade>().UpdateDisplay();
+            }
         }
-   }
+        else
+        {
+          
+            renderer.material.color = defaultColor;
+        }
+    }
 
-//    void OnMouseExit(){
-//     Hovering = false;
-//    }
-
-   void InputForBuilding(){
-       
-           
-            if(Input.GetKeyDown(KeyCode.F) && InRange && Hovering && DirectionName != "" ){
-                if(FindObjectOfType<BuildBarricade>().planks>=1){
-                     if(DirectionName == "NorthSpot" && IsBuiltNorth){
-                
-                     Debug.Log("you already built this barricade");
-                        }else if(DirectionName == "WestSpot" && IsBuiltWest){
-                            Debug.Log("you already built this barricade");
-                        }else if(DirectionName == "EastSpot" && IsBuiltEast){
-                            Debug.Log("you already built this barricade");
-                        }else if(DirectionName == "SouthSpot" && IsBuiltSouth){
-                            Debug.Log("you already built this barricade");
-                        }
-                        else{
-
-                    FindObjectOfType<BuildBarricade>().planks=FindObjectOfType<BuildBarricade>().planks-1;
-                    FindObjectOfType<BuildBarricade>().UpdateDisplay();
-                    Invoke("BuildBarricade",0.5f);
-                        }
+    public void TakeDamage(BarricadeSpot barricadeSpot)
+    {
+          
+            barricadeSpot.isOccupied = false;
+            
+            barricadeSpot.nextRebuildTime = Time.time + rebuildCooldown;
+            
+            foreach (Transform child in transform)
+            {
+                if (child.CompareTag("Barricade"))
+                {
+                    child.gameObject.SetActive(false);
                 }
-                
-                 if(FindObjectOfType<BuildBarricade>().planks<1){
-                  
-                    
-                    Debug.Log("you need more planks");
-                    
-                }
-                
             }
         
-        
-
-
     }
 
-   public void BuildBarricade(){
-       
-       audisource.PlayOneShot(BuildSound);
-
-        if(DirectionName == "NorthSpot" && !IsBuiltNorth){
-            IsBuiltNorth = true;
-            NorthBarricade.SetActive(true);
-            
-        }
-         if(DirectionName == "WestSpot" && !IsBuiltWest){
-            westSign.SetActive(false);
-            IsBuiltWest = true;
-            WestBarricade.SetActive(true);
-            
-        }
-         if(DirectionName == "EastSpot" && !IsBuiltEast){
-            eastSign.SetActive(false);
-            IsBuiltEast = true;
-            EastBarricade.SetActive(true);
-            
-        }
-         if(DirectionName == "SouthSpot" && !IsBuiltSouth){
-            IsBuiltSouth = true;
-            SouthBarricade.SetActive(true);
-            
-           
-        }
-
-        
-   }
-
-
-   public IEnumerator TakeDamage(string barricadeName){
-   
-    yield return new WaitForSeconds(2.0f);
-
-    audisource.PlayOneShot(BreakSound);
-
-    if(barricadeName == "NorthBarricade" ){
-        IsBuiltNorth = false;
-        NorthBarricade.SetActive(false);
-     
-        
-    }
-     if(barricadeName == "EastBarricade" ){
-        eastSign.SetActive(true);
-        IsBuiltEast = false;
-        EastBarricade.SetActive(false);
-        
-        
-    }
-    if(barricadeName == "WestBarricade" ){
-        westSign.SetActive(true);
-        IsBuiltWest = false;
-        WestBarricade.SetActive(false);
-       
-        
-    }
-     if(barricadeName == "SouthBarricade" ){
-        IsBuiltSouth = false;
-        SouthBarricade.SetActive(false);
-        
-        
-    }
-   
-     
-
-   }
 }
