@@ -6,7 +6,7 @@
 
 
 
-#Game developed by Ivan Čabraja
+# Game developed by Ivan Čabraja
 
 [Sveučilište Jurja Dobrile u Puli](http://www.unipu.hr/)  
 [Fakultet informatike u Puli](https://fipu.unipu.hr/)
